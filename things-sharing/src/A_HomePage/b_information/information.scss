@@ -1,0 +1,36 @@
+@use 'sass:color';
+@import "./src/Z_Colors/colors";
+
+.information {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-image: url("./3 Columns Background.png");
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 3rem;
+  justify-content: space-around;
+  padding: 2rem 8rem;
+  article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 2rem;
+    h2 {
+      margin: 0;
+      font-size: 6.4rem;
+      font-weight: lighter;
+    }
+    h3 {
+      margin: 0;
+      font-size: 1.3rem;
+      font-weight: normal;
+    }
+    p {
+      font-size: 1.1rem;
+      text-align: center;
+      line-height: 2rem;
+    }
+  }
+}
+

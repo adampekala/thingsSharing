@@ -1,0 +1,15 @@
+@import "Z_Fonts/fonts";
+@import "Z_Colors/colors";
+
+:root {
+  font-size: 14px;
+}
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: $fontColor;
+  font-family: "Open Sans", sans-serif;
+  
+}
