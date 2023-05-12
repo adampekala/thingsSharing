@@ -1,5 +1,5 @@
 import React from "react";
-import Decoration from './Decoration.png'
+import Decoration from '../../Z_Images/Decoration.png'
 
 const HeroRightArea = () => {
     return (

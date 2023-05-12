@@ -1,0 +1,72 @@
+.whoWeHelp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.whoWeHelpBtn {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+}
+.whoWeHelpBtn button {
+  background-color: transparent;
+  border-radius: 0;
+  border: 1px solid #3C3C3C;
+  padding: 1rem 3rem;
+  font-size: 1.2rem;
+  width: 15rem;
+}
+.whoWeHelpBtn button:hover {
+  background-color: #e6e6e6;
+}
+
+.whoWeHelpText {
+  margin: 0 auto;
+  width: 50%;
+  text-align: center;
+}
+
+.whoWeHelpTable {
+  margin: 5rem auto 5rem;
+  border-collapse: collapse;
+}
+.whoWeHelpTable th {
+  font-size: 1.9rem;
+  text-align: left;
+  width: 65%;
+  border-bottom: 1px solid black;
+}
+.whoWeHelpTable th small {
+  font-size: 1.3rem;
+  font-weight: normal;
+}
+.whoWeHelpTable td {
+  text-align: right;
+  font-size: 1.3rem;
+  border-bottom: 1px solid black;
+}
+
+.whoWeHelpTablePagination {
+  display: flex;
+  gap: 2rem;
+}
+.whoWeHelpTablePagination button {
+  background-color: transparent;
+  border-radius: 0;
+  border: 1px solid #3C3C3C;
+  padding: 1rem 1rem;
+  font-size: 1.2rem;
+  border: 1px solid transparent;
+}
+.whoWeHelpTablePagination button:hover {
+  background-color: #e6e6e6;
+}
+.whoWeHelpTablePagination button:hover {
+  border: 1px solid black;
+  background-color: transparent;
+}
+
+/*# sourceMappingURL=whoWeHelp.css.map */

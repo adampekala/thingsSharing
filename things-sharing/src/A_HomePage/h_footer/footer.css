@@ -1,0 +1,24 @@
+.footer {
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  z-index: 1;
+}
+
+.footerCopyright {
+  text-align: center;
+  font-size: 1.2rem;
+  flex-grow: 1;
+}
+
+.footerSocialMediaLinks {
+  padding-right: 10rem;
+  display: flex;
+  gap: 1rem;
+}
+.footerSocialMediaLinks img {
+  width: 4rem;
+  aspect-ratio: 1;
+}
+
+/*# sourceMappingURL=footer.css.map */

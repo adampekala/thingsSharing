@@ -1,0 +1,23 @@
+.footer {
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  z-index: 1;
+}
+.footerCopyright {
+  text-align: center;
+  font-size: 1.2rem;
+  flex-grow: 1;
+}
+.footerSocialMediaLinks {
+  padding-right: 10rem;
+  display: flex;
+  gap: 1rem;
+  img {
+      width: 4rem;
+      aspect-ratio: 1;
+  }
+}
+
+
+

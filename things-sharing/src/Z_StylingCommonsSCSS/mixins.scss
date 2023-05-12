@@ -1,0 +1,13 @@
+@use '../Z_Colors/colors';
+@use "sass:color";
+
+@mixin button($padding: 3rem 5rem, $fontSize: 3rem) {
+  background-color: transparent;
+  border-radius: 0;
+  border: 1px solid colors.$fontColor;
+  padding: $padding;
+  font-size: $fontSize;
+  &:hover {
+    background-color: lighten(grey, 40%);
+  }
+}

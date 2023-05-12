@@ -1,0 +1,58 @@
+@use 'sass:color';
+@import '../../Z_StylingCommonsSCSS/mixins';
+
+.whoWeHelp {
+display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.whoWeHelpBtn {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  button {
+  @include button(1rem 3rem, 1.2rem);
+    width: 15rem;
+  }
+}
+.whoWeHelpText {
+  margin: 0 auto;
+  width: 50%;
+  text-align: center;
+}
+.whoWeHelpTable {
+  margin: 5rem auto 5rem;
+  border-collapse: collapse;
+  tr {
+  }
+  th {
+    font-size: 1.9rem;
+    text-align: left;
+    width: 65%;
+    border-bottom: 1px solid black;
+    small {
+      font-size: 1.3rem;
+      font-weight: normal;
+    }
+  }
+  td {
+    text-align: right;
+    font-size: 1.3rem;
+    border-bottom: 1px solid black;
+  }
+}
+
+.whoWeHelpTablePagination {
+  display: flex;
+  gap: 2rem;
+  button {
+    @include button(1rem 1rem, 1.2rem);
+    border: 1px solid transparent;
+    &:hover {
+      border: 1px solid black;
+      background-color: transparent;
+    }
+  }
+}

@@ -1,0 +1,52 @@
+.howTo {
+  margin: 2rem auto 0;
+  background-color: #F0F1F1;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 3rem;
+  justify-content: space-around;
+  padding: 2rem 8rem;
+}
+.howTo article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.howTo article img {
+  padding-top: 2rem;
+}
+.howTo article hr {
+  text-align: center;
+  color: black;
+  background-color: black;
+  height: 1px;
+  width: 60%;
+}
+.howTo article h3 {
+  text-align: center;
+  margin: 0;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  font-size: 1.3rem;
+  font-weight: normal;
+}
+.howTo article p {
+  text-align: center;
+  line-height: 2rem;
+  padding: 0 2rem 3rem;
+}
+
+.howToBtn {
+  background-color: transparent;
+  border-radius: 0;
+  border: 1px solid #3C3C3C;
+  padding: 3rem 5rem;
+  font-size: 3rem;
+  margin: 2rem auto;
+}
+.howToBtn:hover {
+  background-color: #e6e6e6;
+}
+
+/*# sourceMappingURL=howTo.css.map */
