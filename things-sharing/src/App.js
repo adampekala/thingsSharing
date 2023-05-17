@@ -9,6 +9,8 @@ import { initializeApp } from "firebase/app";
 import firebaseConfig from "./firebase/firebaseConfig";
 const app = initializeApp(firebaseConfig);
 
+//dotenv implementation
+
 require('dotenv').config();
 
 
