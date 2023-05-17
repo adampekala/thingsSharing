@@ -11,7 +11,7 @@ const app = initializeApp(firebaseConfig);
 
 //dotenv implementation
 
-require('dotenv').config();
+// require('dotenv').config();
 
 
 function App() {
