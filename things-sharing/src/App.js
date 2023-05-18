@@ -2,16 +2,8 @@ import './App.scss';
 import HomePage from "./A_HomePage/home";
 import {HashRouter, Routes, Route} from "react-router-dom";
 import SignUpComponent from "./B_SignUpComponent/signUpComponent";
-import LogInComponent from "./B_LogInComponent/logInComponent";
+import LogInComponent from "./C_LogInComponent/logInComponent";
 
-//TODO firebase
-import { initializeApp } from "firebase/app";
-import firebaseConfig from "./firebase/firebaseConfig";
-const app = initializeApp(firebaseConfig);
-
-//dotenv implementation
-
-// require('dotenv').config();
 
 
 function App() {
