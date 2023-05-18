@@ -1,14 +1,12 @@
 import React from "react";
 import Decoration from '../../Z_Images/Decoration.png'
+import LoginPanel from "../../X_CommonComponents/loginPanel";
 
 
 const HeroRightArea = () => {
     return (
         <div>
-            <div className='loginPanel'>
-                <button type='button' className='loginPanel_logInBtn'>Zaloguj</button>
-                <button type='button'className='loginPanel_signInBtn'>Załóż konto</button>
-            </div>
+            <LoginPanel/>
             <ul className='navigation'>
                 <li>Start</li>
                 <li>O co chodzi?</li>
