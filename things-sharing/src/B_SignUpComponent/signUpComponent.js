@@ -6,6 +6,7 @@ import auth  from "../firebase/firebaseConfig";
 import { createUserWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth'
 import {ADD_USER} from "../actions/actionsNames";
 import {Link} from "react-router-dom";
+import Navigation from "../X_CommonComponents/navigation";
 
 
 const SignUpComponent = () => {
@@ -54,13 +55,7 @@ const SignUpComponent = () => {
     return (
         <>
             <LoginPanel />
-            <ul className='navigation'>
-                <li>Start</li>
-                <li>O co chodzi?</li>
-                <li>O nas</li>
-                <li>Fundacja i organizacje</li>
-                <li>Kontakt</li>
-            </ul>
+            <Navigation/>
             <form className="signUpForm" onSubmit={handleSubmit}>
                 <h1 className='signUpForm_header'>Załóż konto</h1>
                 <img className='signUpForm_decoration' src={decoration} alt='dekoracja'/>
