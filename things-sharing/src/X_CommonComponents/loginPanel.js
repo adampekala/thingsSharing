@@ -64,7 +64,6 @@ const LoginPanel = () => {
                 <button type='button' className='loginPanel_signOutBtn' onClick={logOut}>Wyloguj konto</button>
             </div>
             :
-
             <div className='loginPanel'>
                 <button type='button' className='loginPanel_logInBtn' onClick={handleLogInLink}>Zaloguj</button>
                 <button type='button' className='loginPanel_signInBtn' onClick={handleRegistrationLink}>Załóż konto</button>

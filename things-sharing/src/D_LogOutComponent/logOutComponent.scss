@@ -1,0 +1,29 @@
+@import '../Z_Colors/colors';
+
+.logOutInfo {
+  margin: 5rem auto;
+  width: 30rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+
+  button {
+    border-radius: 0;
+    border: 1px solid $fontColor;
+    padding: 1rem;
+    background-color: transparent;
+    font-family: "Open Sans", sans-serif;
+    &:hover {
+      background-color: lighten($grey, 50%)
+    }
+  }
+}
+
+.logOutInfo_header {
+
+}
+
+.logInForm_decoration {
+
+}
