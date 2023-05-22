@@ -32,20 +32,7 @@
 
 }
 
-.navigation {
-    justify-content: flex-end;
-    list-style-type: none;
-    display: flex;
-    gap: 1rem;
 
-  li {
-    display: block;
-    font-size: 1.3rem;
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-}
 
 .header {
   margin-top: 10rem;

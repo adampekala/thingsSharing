@@ -7,7 +7,7 @@ const Information = () => {
     const organisationNumber = useSelector(state => state.organisations.length);
     const collectionsNumber = useSelector(state => state.organisations.reduce((total, numer) => total + numer.collections, 0));
     return (
-        <div className='information'>
+        <div id='information' className='information'>
             <article className='informationArticle_left'>
                 <h2>{bags}</h2>
                 <h3>ODDANYCH WORKÓW</h3>

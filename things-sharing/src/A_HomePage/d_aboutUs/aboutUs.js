@@ -6,7 +6,7 @@ import people from '../d_aboutUs/aboutUsImages/People.png'
 
 const AboutUs = () => {
     return (
-            <div className='aboutUs'>
+            <div id='aboutUs' className='aboutUs'>
                 <article>
                     <h1>O nas</h1>
                     <img src={decoration} alt='dekoracja'/>

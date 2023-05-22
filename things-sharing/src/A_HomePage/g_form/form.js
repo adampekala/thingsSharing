@@ -5,7 +5,7 @@ import Footer from "../h_footer/footer";
 
 const Form = () => {
     return (
-        <div className='formContainer'>
+        <div id='contact' className='formContainer'>
             <div className='form'>
                 <h1>Skontaktuj się z nami</h1>
                 <img className='formDecorationImg' src={decoration} alt='dekoracja'/>

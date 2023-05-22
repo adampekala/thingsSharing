@@ -30,7 +30,7 @@ const WhoWeHelp = () => {
     }
 
     return (
-            <div className='whoWeHelp'>
+            <div id='whoWeHelp' className='whoWeHelp'>
                 <div>
                     <h1>Komu pomagamy?</h1>
                     <img src={decoration} alt='dekoracja'/>

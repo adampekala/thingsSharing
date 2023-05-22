@@ -2,7 +2,10 @@
 @import "./src/Z_Colors/colors";
 
 .loginPanel {
-  margin-top: 2rem;
+  position: fixed;
+  right: 5rem;
+  top: 1rem;
+  //margin-top: 2rem;
   display: flex;
   justify-content: flex-end;
   button {
