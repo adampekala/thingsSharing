@@ -1,12 +1,15 @@
-import React from "react";
+import React, {useState} from "react";
 import Decoration from '../../Z_Images/Decoration.png'
 import LoginPanel from "../../X_CommonComponents/loginPanel";
+// import {onAuthStateChanged} from "firebase/auth";
+// import auth from "../../firebase/firebaseConfig";
 
 
 const HeroRightArea = () => {
+
     return (
         <div>
-            <LoginPanel/>
+            <LoginPanel />
             <ul className='navigation'>
                 <li>Start</li>
                 <li>O co chodzi?</li>

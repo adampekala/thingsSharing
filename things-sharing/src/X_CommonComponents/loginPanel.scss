@@ -9,8 +9,21 @@
     margin: 0 0.5rem;
     padding: 0.5rem;
     border: 1px solid transparent;
+    background-color: white;
     &:hover {
       border: 1px solid $contrastColor;
     }
   }
+}
+
+.loginPanel_userInformation {
+  color: $fontColor;
+  font-size: 1.3rem;
+  margin: 0 0.5rem;
+  padding: 0.5rem;
+  border: 1px solid transparent;
+}
+
+.loginPanel_signOutBtn {
+  color: lighten($fontColor, 40%);
 }

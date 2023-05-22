@@ -1,0 +1,55 @@
+@use "sass:color";
+@import "./src/Z_Colors/colors";
+
+
+.logInForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.logInForm_header {
+
+}
+.logInForm_decoration {
+  margin-bottom: 2rem;
+}
+.logInForm_form {
+  width: 27rem;
+  padding: 3rem 5rem;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  gap: 2rem;
+  background-color: lighten($grey, 40%);
+}
+
+.logInForm_buttons {
+  width: 50rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 4rem 0;
+
+  button {
+    border-radius: 0;
+    border: 1px solid $fontColor;
+    padding: 1rem;
+    background-color: transparent;
+    font-family: "Open Sans", sans-serif;
+    &:hover {
+      background-color: lighten($grey, 50%)
+    }
+  }
+  a {
+    color: $fontColor;
+    text-decoration: none;
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.3rem;
+    padding: 1rem;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+

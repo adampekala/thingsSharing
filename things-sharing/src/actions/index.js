@@ -1,4 +1,4 @@
-import {ADD_ORGANISATION, DEL_ORGANISATION} from "./actionsNames";
+import {ADD_ORGANISATION, ADD_USER, DEL_ORGANISATION, SHOW_LOGGED_USER} from "./actionsNames";
 
 export const addOrganisation = (name, mission, needs) => {
     return {
@@ -17,5 +17,12 @@ export const delOrganisation = (name) => {
     return {
         type: DEL_ORGANISATION,
 
+    }
+}
+
+export const showLoggedUser = (user) => {
+    return {
+        type: SHOW_LOGGED_USER,
+        user
     }
 }

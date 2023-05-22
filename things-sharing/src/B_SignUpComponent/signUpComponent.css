@@ -1,9 +1,9 @@
-/* Error: expected "{".
+/* Error: Can't find stylesheet to import.
  *   ,
- * 1 | import './signUpComponent.scss'
- *   |                                ^
+ * 2 | @import "./src/Z_Colors/colors";
+ *   |         ^^^^^^^^^^^^^^^^^^^^^^^
  *   '
- *   signInComponent.scss 1:32  root stylesheet */
+ *   signUpComponent.scss 2:9  root stylesheet */
 
 body::before {
   font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
@@ -13,5 +13,5 @@ body::before {
   padding: 1em;
   margin-bottom: 1em;
   border-bottom: 2px solid black;
-  content: "Error: expected \"{\".\a   \2577 \a 1 \2502  import './signUpComponent.scss'\a   \2502                                 ^\a   \2575 \a   signInComponent.scss 1:32  root stylesheet";
+  content: "Error: Can't find stylesheet to import.\a   \2577 \a 2 \2502  @import \"./src/Z_Colors/colors\";\a   \2502          ^^^^^^^^^^^^^^^^^^^^^^^\a   \2575 \a   signUpComponent.scss 2:9  root stylesheet";
 }

@@ -11,7 +11,7 @@ function App() {
       <HashRouter>
         <Routes>
           <Route path='/' element={<HomePage/>}/>
-          <Route path='register' element={<SignUpComponent/>}/>
+          <Route path='registration' element={<SignUpComponent/>}/>
           <Route path='logIn' element={<LogInComponent/>}/>
           {/*<Route path='logOut' element={<LogOutComponent/>}/>*/}
           {/*<Route path='form' element={<FormComponent/>}/>*/}

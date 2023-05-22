@@ -343,6 +343,19 @@ img {
 
 button {
   display: block;
+  font-size: 1.3rem;
+}
+
+label {
+  font-size: 1.2rem;
+  font-weight: bolder;
+}
+
+input {
+  border: none;
+  border-bottom: 1px solid #3C3C3C;
+  background-color: transparent;
+  outline: none;
 }
 
 /*# sourceMappingURL=App.css.map */
