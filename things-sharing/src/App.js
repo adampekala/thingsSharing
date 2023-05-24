@@ -14,6 +14,7 @@ import {
 import {useEffect} from "react";
 import {useDispatch} from "react-redux";
 import {showOrganisation} from "./actions";
+import FormComponent from "./E_FormComponent/formComponent";
 
 
 
@@ -37,7 +38,7 @@ function App() {
           <Route path='registration' element={<SignUpComponent/>}/>
           <Route path='logIn' element={<LogInComponent/>}/>
           <Route path='logOut' element={<LogOutComponent/>}/>
-          {/*<Route path='form' element={<FormComponent/>}/>*/}
+          <Route path='form' element={<FormComponent/>}/>
         </Routes>
       </HashRouter>
 
