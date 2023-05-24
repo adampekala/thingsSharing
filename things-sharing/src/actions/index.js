@@ -1,4 +1,4 @@
-import {ADD_ORGANISATION, ADD_USER, DEL_ORGANISATION, SHOW_LOGGED_USER} from "./actionsNames";
+import {ADD_ORGANISATION, DEL_ORGANISATION, SHOW_LOGGED_USER, SHOW_ORGANISATION} from "./actionsNames";
 
 export const addOrganisation = (name, mission, needs) => {
     return {
@@ -10,6 +10,13 @@ export const addOrganisation = (name, mission, needs) => {
             bags: 0,
             collections: 0
         }
+    }
+}
+
+export const showOrganisation = (orgArr) => {
+    return {
+        type: SHOW_ORGANISATION,
+        payload: orgArr
     }
 }
 
