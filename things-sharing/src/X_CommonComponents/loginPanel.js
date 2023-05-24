@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import './loginPanel.scss'
 
-import auth from "../../src/firebase/firebaseConfig";
+import { auth } from "../../src/firebase/firebaseConfig";
 import {onAuthStateChanged, signOut} from "firebase/auth";
 import {Link, useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";

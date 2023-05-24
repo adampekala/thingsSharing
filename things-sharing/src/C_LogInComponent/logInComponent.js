@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import decoration from '../Z_Images/Decoration.png'
 import LoginPanel from "../X_CommonComponents/loginPanel";
 import './logInComponent.scss';
-import auth  from "../firebase/firebaseConfig";
+import { auth } from "../firebase/firebaseConfig";
 import {signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut} from 'firebase/auth'
 import {showLoggedUser} from "../actions";
 import {useDispatch} from "react-redux";

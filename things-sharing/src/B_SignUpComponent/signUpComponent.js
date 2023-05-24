@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import decoration from '../Z_Images/Decoration.png'
 import LoginPanel from "../X_CommonComponents/loginPanel";
 import './signUpComponent.scss';
-import auth  from "../firebase/firebaseConfig";
+import { auth } from "../firebase/firebaseConfig";
 import { createUserWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth'
 import {ADD_USER} from "../actions/actionsNames";
 import {Link} from "react-router-dom";
