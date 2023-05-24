@@ -1,8 +1,9 @@
 import {
     ADD_ORGANISATION,
     DEL_ORGANISATION,
-    EDIT_ORGANISATION
+    EDIT_ORGANISATION, SHOW_ORGANISATION
 } from "../actions/actionsNames";
+
 
 const initialState = [
     {
@@ -100,6 +101,8 @@ const organisationsReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_ORGANISATION:
             return "OK";
+        case SHOW_ORGANISATION:
+            return action.payload;
         case EDIT_ORGANISATION:
             return "Edit";
         case DEL_ORGANISATION:
