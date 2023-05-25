@@ -15,7 +15,7 @@ const GiveThingsForm = () => {
             return (
                 <form>
                     <p>Krok {page}/4</p>
-                    <p>Krok 2</p>
+                    <h1>Podaj liczbę 60l worków, w które spakowałeś/aś rzeczy:</h1>
                     <button type='button' onClick={pageDecrease}>Wstecz</button>
                     <button type='button' onClick={pageIncrease}>Dalej</button>
                 </form>
@@ -24,7 +24,7 @@ const GiveThingsForm = () => {
             return (
                 <form>
                     <p>Krok {page}/4</p>
-                    <p>Krok 3</p>
+                    <h1>Lokalizacja</h1>
                     <button type='button' onClick={pageDecrease}>Wstecz</button>
                     <button type='button' onClick={pageIncrease}>Dalej</button>
                 </form>
@@ -33,7 +33,7 @@ const GiveThingsForm = () => {
             return (
                 <form>
                     <p>Krok {page}/4</p>
-                    <p>Krok 4</p>
+                    <h1>Podaj adres oraz termin odbioru rzecz przez kuriera</h1>
                     <button type='button' onClick={pageDecrease}>Wstecz</button>
                     <button type='button' onClick={pageIncrease}>Dalej</button>
 
