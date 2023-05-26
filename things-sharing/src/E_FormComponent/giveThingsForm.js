@@ -40,13 +40,19 @@ const GiveThingsForm = () => {
 
         let arr = [];
 
-        goodThings && thingsArr.push("ubrania");
-        badThings && thingsArr.push("ubrania do wyrzucenia");
-        toys && thingsArr.push("zabawki");
-        books && thingsArr.push("książki");
-        other && thingsArr.push("inne");
-        console.log(thingsArr);
+        goodThings && arr.push("ubrania");
+        badThings && arr.push("ubrania do wyrzucenia");
+        toys && arr.push("zabawki");
+        books && arr.push("książki");
+        other && arr.push("inne");
+        console.log(arr);
         setThingsArr(arr);
+
+        // const addNeeds = () => {
+        //     return { type: ADD_NEEDS,
+        //     needs: arr}
+        // }
+
     }
 
 
