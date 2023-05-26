@@ -3,7 +3,6 @@ import '../App.scss'
 
 const GiveThingsForm = () => {
     const [page, setPage] = useState(1);
-    // const [things, setThings] = useState([]);
     const [goodThings, setGoodThings] = useState(false);
     const [badThings, setBadThings] = useState(false);
     const [toys, setToys] = useState(false);
@@ -18,10 +17,25 @@ const GiveThingsForm = () => {
     const pageDecrease = () => {
         setPage((prev)=> prev - 1 )
     }
-    const checkboxSelected = (event) => {
+
+    const checkboxSelected1 = (event) => {
         setGoodThings((prev) => !prev);
-        console.log(event.target.value);
+        // setThingsObject( prevState => ({...prevState, [event.target.name]: event.target.value}))
+        console.log(event.target.checked);
     }
+    const checkboxSelected2 = (event) => {
+        setBadThings((prev) => !prev);
+    }
+    const checkboxSelected3 = (event) => {
+        setToys((prev) => !prev);
+    }
+    const checkboxSelected4 = (event) => {
+        setBooks((prev) => !prev);
+    }
+    const checkboxSelected5 = (event) => {
+        setOther((prev) => !prev);
+    }
+
     const sentFirstPageToRedux = () => {
 
         let arr = [];
@@ -113,11 +127,31 @@ const GiveThingsForm = () => {
                     <p>Krok {page}/4</p>
                     <fieldset className='GiveThingsForm_Fieldset'>
                         <legend>Zaznacz co chcesz oddać:</legend>
-                        <label><input onChange={checkboxSelected} type='checkbox' name='things' checked={goodThings}/><span className='checkboxSpam'></span> ubrania, które nadają się do ponownego użycia</label>
-                        <label><input type='checkbox' name='things' value="thingsInGoodCondition"/><span className='checkboxSpam'></span> ubrania, do wyrzucenia</label>
-                        <label><input type='checkbox' name='things' value="thingsInGoodCondition"/><span className='checkboxSpam'></span> zabawki</label>
-                        <label><input type='checkbox' name='things' value="thingsInGoodCondition"/><span className='checkboxSpam'></span> książki</label>
-                        <label><input type='checkbox' name='things' value="thingsInGoodCondition"/><span className='checkboxSpam'></span> inne</label>
+                        <label>
+                            <input onChange={checkboxSelected1} type='checkbox' name='things' checked={goodThings}/>
+                            <span className='checkboxSpam'></span>
+                            ubrania, które nadają się do ponownego użycia
+                        </label>
+                        <label>
+                            <input onChange={checkboxSelected2} type='checkbox' name='things' checked={badThings}/>
+                            <span className='checkboxSpam'></span>
+                            ubrania, do wyrzucenia
+                        </label>
+                        <label>
+                            <input onChange={checkboxSelected3} type='checkbox' name='things' value="thingsInGoodCondition" checked={toys}/>
+                            <span className='checkboxSpam'></span>
+                            zabawki
+                        </label>
+                        <label>
+                            <input onChange={checkboxSelected4} type='checkbox' name='things' value="thingsInGoodCondition" checked={books}/>
+                            <span className='checkboxSpam'></span>
+                            książki
+                        </label>
+                        <label>
+                            <input onChange={checkboxSelected5} type='checkbox' name='things' value="thingsInGoodCondition" checked={other}/>
+                            <span className='checkboxSpam'></span>
+                            inne
+                        </label>
                     </fieldset>
                     <button type='button' onClick={pageIncrease}>Dalej</button>
                     <button type='button' onClick={sentFirstPageToRedux}>Test</button>
