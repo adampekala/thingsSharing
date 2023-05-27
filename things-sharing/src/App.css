@@ -364,4 +364,20 @@ input {
   outline: none;
 }
 
+span {
+  font-size: 1.7rem;
+  font-weight: normal;
+}
+
+.checkboxSpan {
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid #3C3C3C;
+  margin-right: 2rem;
+}
+
+.checkboxSpan.checked {
+  background-color: #FAD648;
+}
+
 /*# sourceMappingURL=App.css.map */

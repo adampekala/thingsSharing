@@ -52,3 +52,22 @@ input {
   background-color: transparent;
   outline: none;
 }
+
+span {
+  font-size: 1.7rem;
+  font-weight: normal;
+
+}
+
+.checkboxSpan {
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid $fontColor;
+  margin-right: 2rem;
+
+}
+
+.checkboxSpan.checked {
+background-color: $contrastColor;
+
+}

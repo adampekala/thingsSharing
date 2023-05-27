@@ -61,8 +61,8 @@ const GiveThingsForm = () => {
     switch (page) {
         case 2:
             return (
-                <form>
-                    <p>Krok {page}/4</p>
+                <form className='giveThingsForm'>
+                    <p className='giveThingsForm_page'>Krok {page}/4</p>
                     <h1>Podaj liczbę 60l worków, w które spakowałeś/aś rzeczy:</h1>
                     <button type='button' onClick={pageDecrease}>Wstecz</button>
                     <button type='button' onClick={pageIncrease}>Dalej</button>
@@ -70,8 +70,8 @@ const GiveThingsForm = () => {
             );
         case 3:
             return (
-                <form>
-                    <p>Krok {page}/4</p>
+                <form className='giveThingsForm'>
+                    <p className='giveThingsForm_page'>Krok {page}/4</p>
                     <h1>Lokalizacja</h1>
                     <button type='button' onClick={pageDecrease}>Wstecz</button>
                     <button type='button' onClick={pageIncrease}>Dalej</button>
@@ -79,8 +79,8 @@ const GiveThingsForm = () => {
             );
         case 4:
             return (
-                <form>
-                    <p>Krok {page}/4</p>
+                <form className='giveThingsForm'>
+                    <p className='giveThingsForm_page'>Krok {page}/4</p>
                     <h1>Podaj adres oraz termin odbioru rzecz przez kuriera</h1>
                     <button type='button' onClick={pageDecrease}>Wstecz</button>
                     <button type='button' onClick={pageIncrease}>Dalej</button>
@@ -89,7 +89,7 @@ const GiveThingsForm = () => {
             );
         case 5:
             return (
-                <div>
+                <div className='giveThingsForm'>
                     <h1>Podsumowanie Twojej darowizny</h1>
                     <p>Oddajesz:</p>
                     <ul>
@@ -129,38 +129,40 @@ const GiveThingsForm = () => {
 
         default:
             return (
-                <form className='GiveThingsForm'>
-                    <p>Krok {page}/4</p>
-                    <fieldset className='GiveThingsForm_Fieldset'>
-                        <legend>Zaznacz co chcesz oddać:</legend>
-                        <label>
+                <form className='giveThingsForm'>
+                    <p className='giveThingsForm_page'>Krok {page}/4</p>
+                    <h1 className='giveThingsForm_Fieldset-Legend'>Zaznacz co chcesz oddać:</h1>
+                    <fieldset className='giveThingsForm_Fieldset'>
+                        <label className='giveThingsForm_Fieldset-Label'>
                             <input onChange={checkboxSelected1} type='checkbox' name='things' checked={goodThings}/>
-                            <span className='checkboxSpam'></span>
-                            ubrania, które nadają się do ponownego użycia
+                            <span className='checkboxSpan checked'></span><span>ubrania, które nadają się do ponownego użycia</span>
                         </label>
-                        <label>
+                        <label className='giveThingsForm_Fieldset-Label'>
                             <input onChange={checkboxSelected2} type='checkbox' name='things' checked={badThings}/>
-                            <span className='checkboxSpam'></span>
+                            <span className='checkboxSpan'></span>
                             ubrania, do wyrzucenia
                         </label>
-                        <label>
+                        <label className='giveThingsForm_Fieldset-Label'>
                             <input onChange={checkboxSelected3} type='checkbox' name='things' value="thingsInGoodCondition" checked={toys}/>
-                            <span className='checkboxSpam'></span>
+                            <span className='checkboxSpan'></span>
                             zabawki
                         </label>
-                        <label>
+                        <label className='giveThingsForm_Fieldset-Label'>
                             <input onChange={checkboxSelected4} type='checkbox' name='things' value="thingsInGoodCondition" checked={books}/>
-                            <span className='checkboxSpam'></span>
+                            <span className='checkboxSpan'></span>
                             książki
                         </label>
-                        <label>
+                        <label className='giveThingsForm_Fieldset-Label'>
                             <input onChange={checkboxSelected5} type='checkbox' name='things' value="thingsInGoodCondition" checked={other}/>
-                            <span className='checkboxSpam'></span>
+                            <span className='checkboxSpan'></span>
                             inne
                         </label>
                     </fieldset>
-                    <button type='button' onClick={pageIncrease}>Dalej</button>
-                    <button type='button' onClick={sentFirstPageToRedux}>Test</button>
+                    <div className='giveThingsForm_ButtonArea'>
+                        <button type='button' onClick={pageIncrease}>Dalej</button>
+                        <button type='button' onClick={sentFirstPageToRedux}>Test</button>
+                    </div>
+
 
 
                 </form>
