@@ -20,8 +20,6 @@ const GiveThingsForm = () => {
 
     const checkboxSelected1 = (event) => {
         setGoodThings((prev) => !prev);
-        // setThingsObject( prevState => ({...prevState, [event.target.name]: event.target.value}))
-        console.log(event.target.checked);
     }
     const checkboxSelected2 = (event) => {
         setBadThings((prev) => !prev);
@@ -55,7 +53,10 @@ const GiveThingsForm = () => {
 
     }
 
-
+    const handleDalejBtnClick = (event) => {
+        page === 1 && sentFirstPageToRedux();
+        pageIncrease()
+    }
 
 
     switch (page) {
@@ -135,36 +136,33 @@ const GiveThingsForm = () => {
                     <fieldset className='giveThingsForm_Fieldset'>
                         <label className='giveThingsForm_Fieldset-Label'>
                             <input onChange={checkboxSelected1} type='checkbox' name='things' checked={goodThings}/>
-                            <span className='checkboxSpan checked'></span><span>ubrania, które nadają się do ponownego użycia</span>
+                            <span className={goodThings ? 'checkboxSpan checked' : 'checkboxSpan'}></span>
+                            <span>ubrania, które nadają się do ponownego użycia</span>
                         </label>
                         <label className='giveThingsForm_Fieldset-Label'>
                             <input onChange={checkboxSelected2} type='checkbox' name='things' checked={badThings}/>
-                            <span className='checkboxSpan'></span>
-                            ubrania, do wyrzucenia
+                            <span className={badThings ? 'checkboxSpan checked' : 'checkboxSpan'}></span>
+                            <span>ubrania, do wyrzucenia</span>
                         </label>
                         <label className='giveThingsForm_Fieldset-Label'>
                             <input onChange={checkboxSelected3} type='checkbox' name='things' value="thingsInGoodCondition" checked={toys}/>
-                            <span className='checkboxSpan'></span>
-                            zabawki
+                            <span className={toys ? 'checkboxSpan checked' : 'checkboxSpan'}></span>
+                            <span>zabawki</span>
                         </label>
                         <label className='giveThingsForm_Fieldset-Label'>
                             <input onChange={checkboxSelected4} type='checkbox' name='things' value="thingsInGoodCondition" checked={books}/>
-                            <span className='checkboxSpan'></span>
-                            książki
+                            <span className={books ? 'checkboxSpan checked' : 'checkboxSpan'}></span>
+                            <span>książki</span>
                         </label>
                         <label className='giveThingsForm_Fieldset-Label'>
                             <input onChange={checkboxSelected5} type='checkbox' name='things' value="thingsInGoodCondition" checked={other}/>
-                            <span className='checkboxSpan'></span>
-                            inne
+                            <span className={other ? 'checkboxSpan checked' : 'checkboxSpan'}></span>
+                            <span>inne</span>
                         </label>
                     </fieldset>
                     <div className='giveThingsForm_ButtonArea'>
-                        <button type='button' onClick={pageIncrease}>Dalej</button>
-                        <button type='button' onClick={sentFirstPageToRedux}>Test</button>
+                        <button type='button' onClick={handleDalejBtnClick}>Dalej</button>
                     </div>
-
-
-
                 </form>
             ) ;
     }
