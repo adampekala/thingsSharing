@@ -62,6 +62,7 @@
   background-position: -5rem -1rem;
   height: 45rem;
   padding: 1rem 4rem;
+  position: relative;
 }
 
 .giveThingsForm_page {
@@ -98,10 +99,62 @@
 }
 
 .giveThingsForm_ButtonArea {
+  position: absolute;
+  bottom: 0;
+  left: 4rem;
   display: flex;
   justify-content: left;
   gap: 2rem;
   padding: 5rem 0 3rem;
+}
+
+.giveThingsForm_Fieldset-selectContainer {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.giveThingsForm_Fieldset-selectButton {
+  position: relative;
+  border: 1px solid #3C3C3C;
+  padding: 0.5rem 1rem;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.giveThingsForm_Fieldset-selectButtonArrowDown {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-top: 2px solid #3C3C3C;
+  border-right: 2px solid #3C3C3C;
+  transform: rotate(135deg) translate(0, 0.5rem);
+}
+
+.giveThingsForm_Fieldset-selectButtonArrowUp {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-top: 2px solid #3C3C3C;
+  border-right: 2px solid #3C3C3C;
+  transform: rotate(-45deg) translate(-0.5rem, 0rem);
+}
+
+.giveThingsForm_Fieldset-selectButtonChoiceList {
+  list-style-type: none;
+  position: absolute;
+  right: 0;
+  border: 1px solid #3C3C3C;
+  padding: 0;
+}
+.giveThingsForm_Fieldset-selectButtonChoiceList li {
+  padding: 0 2rem;
+}
+.giveThingsForm_Fieldset-selectButtonChoiceList li:hover {
+  background-color: #bcbcbc;
+}
+
+.giveThingsForm_Fieldset-selectButtonChoiceList.hidden {
+  display: none;
 }
 
 /*# sourceMappingURL=formComponent.css.map */

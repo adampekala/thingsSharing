@@ -9,6 +9,8 @@ const GiveThingsForm = () => {
     const [books, setBooks] = useState(false);
     const [other, setOther] = useState(false);
     const [thingsArr, setThingsArr] = useState([]);
+    const [selectOn, setSelectOn] = useState(false);
+    const [bags, setBags] = useState("--wybierz--")
 
 
     const pageIncrease = () => {
@@ -33,7 +35,7 @@ const GiveThingsForm = () => {
     const checkboxSelected5 = (event) => {
         setOther((prev) => !prev);
     }
-
+//TODO redux
     const sentFirstPageToRedux = () => {
 
         let arr = [];
@@ -58,24 +60,78 @@ const GiveThingsForm = () => {
         pageIncrease()
     }
 
+    const handleSelect = () => {
+        setSelectOn(prev =>  !prev )
+    }
+
+    const handleSelectBags = (number) => {
+        setBags(number);
+
+    }
+
 
     switch (page) {
         case 2:
             return (
                 <form className='giveThingsForm'>
                     <p className='giveThingsForm_page'>Krok {page}/4</p>
-                    <h1>Podaj liczbę 60l worków, w które spakowałeś/aś rzeczy:</h1>
-                    <button type='button' onClick={pageDecrease}>Wstecz</button>
-                    <button type='button' onClick={pageIncrease}>Dalej</button>
+                    <h1 className='giveThingsForm_Fieldset-Legend'>Podaj liczbę 60l worków, w które spakowałeś/aś rzeczy:</h1>
+                    <div className='giveThingsForm_Fieldset-selectContainer'>
+                        <span>Liczba 60l worków:</span>
+                        <span onClick={handleSelect} className='giveThingsForm_Fieldset-selectButton'>
+                            <span className='giveThingsForm_Fieldset-selectButtonText'>
+                                --wybierz--
+                                 <ul className={selectOn ? 'giveThingsForm_Fieldset-selectButtonChoiceList'
+                                 :
+                                     'giveThingsForm_Fieldset-selectButtonChoiceList hidden'
+                                 }>
+                                     <li onClick={() => handleSelectBags(1)}>1</li>
+                                     <li onClick={() => handleSelectBags(2)}>2</li>
+                                     <li onClick={() => handleSelectBags(3)}>3</li>
+                                     <li onClick={() => handleSelectBags(4)}>4</li>
+                                     <li onClick={() => handleSelectBags(5)}>5</li>
+                                 </ul>
+
+                            </span>
+                             <span className={selectOn ? 'giveThingsForm_Fieldset-selectButtonArrowUp' : 'giveThingsForm_Fieldset-selectButtonArrowDown'}></span>
+                        </span>
+                    </div>
+                    <div className='giveThingsForm_ButtonArea'>
+                        <button type='button' onClick={pageDecrease}>Wstecz</button>
+                        <button type='button' onClick={pageIncrease}>Dalej</button>
+                    </div>
+
                 </form>
             );
         case 3:
             return (
                 <form className='giveThingsForm'>
                     <p className='giveThingsForm_page'>Krok {page}/4</p>
-                    <h1>Lokalizacja</h1>
-                    <button type='button' onClick={pageDecrease}>Wstecz</button>
-                    <button type='button' onClick={pageIncrease}>Dalej</button>
+                    <h1 className='giveThingsForm_Fieldset-Legend'>Lokalizacja:</h1>
+                    <div className='giveThingsForm_Fieldset-selectContainer'>
+                        <span onClick={handleSelect} className='giveThingsForm_Fieldset-selectButton'>
+                            <span className='giveThingsForm_Fieldset-selectButtonText'>
+                                --wybierz--
+                                 <ul className={selectOn ? 'giveThingsForm_Fieldset-selectButtonChoiceList'
+                                     :
+                                     'giveThingsForm_Fieldset-selectButtonChoiceList hidden'
+                                 }>
+                                     <li onClick={() => handleSelectBags(1)}>1</li>
+                                     <li onClick={() => handleSelectBags(2)}>2</li>
+                                     <li onClick={() => handleSelectBags(3)}>3</li>
+                                     <li onClick={() => handleSelectBags(4)}>4</li>
+                                     <li onClick={() => handleSelectBags(5)}>5</li>
+                                 </ul>
+
+                            </span>
+                             <span className={selectOn ? 'giveThingsForm_Fieldset-selectButtonArrowUp' : 'giveThingsForm_Fieldset-selectButtonArrowDown'}></span>
+                        </span>
+                    </div>
+                    <div className='giveThingsForm_ButtonArea'>
+                        <button type='button' onClick={pageDecrease}>Wstecz</button>
+                        <button type='button' onClick={pageIncrease}>Dalej</button>
+                    </div>
+
                 </form>
             );
         case 4:
@@ -83,9 +139,10 @@ const GiveThingsForm = () => {
                 <form className='giveThingsForm'>
                     <p className='giveThingsForm_page'>Krok {page}/4</p>
                     <h1>Podaj adres oraz termin odbioru rzecz przez kuriera</h1>
-                    <button type='button' onClick={pageDecrease}>Wstecz</button>
-                    <button type='button' onClick={pageIncrease}>Dalej</button>
-
+                    <div className='giveThingsForm_ButtonArea'>
+                        <button type='button' onClick={pageDecrease}>Wstecz</button>
+                        <button type='button' onClick={pageIncrease}>Dalej</button>
+                    </div>
                 </form>
             );
         case 5:
@@ -121,9 +178,11 @@ const GiveThingsForm = () => {
                             </tbody>
                         </table>
                     </div>
-                    <button type='button' onClick={pageDecrease}>Wstecz</button>
-                    <button type='button' onClick={() => console.log("potwierdzenie")}>Potwierdzam</button>
-                </div>
+                        <div className='giveThingsForm_ButtonArea'>
+                            <button type='button' onClick={pageDecrease}>Wstecz</button>
+                            <button type='button' onClick={() => console.log("potwierdzenie")}>Potwierdzam</button>
+                        </div>
+                    </div>
 
 
             );
