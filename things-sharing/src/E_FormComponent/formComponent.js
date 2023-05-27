@@ -45,7 +45,6 @@ const FormComponent = () => {
             </div>
             <GiveThingsForm/>
             <Form />
-            <Footer/>
         </>
     )
 }
