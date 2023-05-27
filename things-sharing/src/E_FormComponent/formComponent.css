@@ -1,3 +1,49 @@
+.formComponent_container {
+  display: flex;
+  justify-content: right;
+  background-image: url("./images/Header-Form-Background.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding-right: 10rem;
+}
+
+.formComponent_rightArea {
+  padding-top: 10rem;
+  width: 60rem;
+}
+
+.formComponent_header-second {
+  text-align: center;
+  font-size: 2.9rem;
+  font-weight: lighter;
+}
+
+.formComponent_header-squares {
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+  padding-bottom: 13rem;
+}
+.formComponent_header-squares p:first-child {
+  font-size: 2.3rem;
+}
+.formComponent_header-squares p:nth-child(2) {
+  font-size: 1.7rem;
+}
+
+.formComponent_header-square {
+  position: relative;
+  width: 10rem;
+}
+.formComponent_header-square::before {
+  content: "";
+  position: absolute;
+  width: 12rem;
+  height: 12rem;
+  border: 1px solid #3C3C3C;
+  transform: translate(-10%, 20%) rotate(45deg);
+}
+
 .giveThingsMessage {
   background-color: #FAD648;
   padding: 3rem 0 3rem 4rem;
@@ -15,13 +61,15 @@
   background-image: url("./images/Background-Form.png");
   background-size: cover;
   background-position: -5rem -1rem;
-  height: 50rem;
+  height: 45rem;
   padding: 1rem 4rem;
 }
 
 .giveThingsForm_page {
   text-align: left;
-  padding-bottom: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin: 0;
 }
 
 .giveThingsForm_Fieldset-Legend {
@@ -54,7 +102,7 @@
   display: flex;
   justify-content: left;
   gap: 2rem;
-  padding: 10rem 0 3rem;
+  padding: 5rem 0 3rem;
 }
 
 /*# sourceMappingURL=formComponent.css.map */
