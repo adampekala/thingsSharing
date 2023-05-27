@@ -1,13 +1,12 @@
 @import "../Z_Colors/colors";
 
 .navigation {
-  position: fixed;
-  right: 5rem;
-  top: 3rem;
+  //position: fixed;
+  //right: 5rem;
+  //top: 3rem;
   justify-content: flex-end;
   list-style-type: none;
   display: flex;
-  gap: 1rem;
 
   li {
     display: block;
