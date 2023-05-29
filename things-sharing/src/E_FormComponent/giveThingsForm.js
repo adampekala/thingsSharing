@@ -13,6 +13,16 @@ const GiveThingsForm = () => {
     const [bags, setBags] = useState("--wybierz--");
     const [town, setTown] = useState('--wybierz--');
     const [organisation, setOrganisation] = useState("...");
+    const [form, setForm] = useState(
+        {
+            street: "..",
+            city: "..",
+            postCode: "..",
+            phone: "..",
+            date: "..",
+            hour: "..",
+            additionalInformation: ".."}
+    )
 
 
     const pageIncrease = () => {
@@ -77,6 +87,11 @@ const GiveThingsForm = () => {
 
     const handleChangeOrganisationInput = (event) => {
         setOrganisation(event.target.value);
+    }
+
+    const handleChangeOtherFormInputs = (event) => {
+        const {name, value} = event.target;
+        setForm((prevState) => ({...prevState, [name]: value}))
     }
 
 
@@ -164,34 +179,34 @@ const GiveThingsForm = () => {
                             <p>Adres odbioru:</p>
                             <div className='giveThingsForm_adresAndDate_labelAndInput'>
                                 <label>Ulica</label>
-                                <input name='street' value={"BBBB"}></input>
+                                <input onChange={handleChangeOtherFormInputs} type='text' name='street' value={form.street}></input>
                             </div>
                             <div className='giveThingsForm_adresAndDate_labelAndInput'>
                                 <label>Miasto</label>
-                                <input name='city' value={"AAAA"}></input>
+                                <input onChange={handleChangeOtherFormInputs} type='text' name='city' value={form.city}></input>
                             </div>
                             <div className='giveThingsForm_adresAndDate_labelAndInput'>
                                 <label>Kod <br/> pocztowy</label>
-                                <input name='postCode' value={"00-00"}></input>
+                                <input onChange={handleChangeOtherFormInputs} type='text' name='postCode' value={form.postCode}></input>
                             </div>
                             <div className='giveThingsForm_adresAndDate_labelAndInput'>
                                 <label>Numer <br/> telefonu</label>
-                                <input name='phone' value={"111"}></input>
+                                <input onChange={handleChangeOtherFormInputs} type='number' name='phone' value={form.phone}></input>
                             </div>
                         </div>
                         <div className='giveThingsForm_adresAndDate-Date'>
                             <p>Termin odbioru:</p>
                             <div className='giveThingsForm_adresAndDate_labelAndInput'>
                                 <label>Data</label>
-                                <input name='date' value={"BBBB"}></input>
+                                <input onChange={handleChangeOtherFormInputs} type='date' name='date' value={form.date}></input>
                             </div>
                             <div className='giveThingsForm_adresAndDate_labelAndInput'>
                                 <label>Godzina</label>
-                                <input name='hour' value={"AAAA"}></input>
+                                <input onChange={handleChangeOtherFormInputs} type='time' name='hour' value={form.hour}></input>
                             </div>
                             <div className='giveThingsForm_adresAndDate_labelAndInput'>
                                 <label>Uwagi<br/> dla Kuriera</label>
-                                <textarea name='additionalInformation' value={"00-00"}></textarea>
+                                <textarea onChange={handleChangeOtherFormInputs} name='additionalInformation' value={form.additionalInformation}></textarea>
                             </div>
                         </div>
                     </div>
