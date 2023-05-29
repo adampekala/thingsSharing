@@ -222,7 +222,15 @@ const GiveThingsForm = () => {
                     <h1>Podsumowanie Twojej darowizny</h1>
                     <p>Oddajesz:</p>
                     <ul>
-                        <li>4 worki, ubrania w dobrym stanie, dzieciom</li>
+                        <li>
+                            { bags }
+                            {bags === 1 && "worek"}
+                            {bags === 2 && "worki"}
+                            {bags === 3 && "worki"}
+                            {bags === 4 && "worki"}
+                            {bags === 5 && "worków"}
+                            {bags === 6 && "worków"}
+                            , ubrania w dobrym stanie, dzieciom</li>
                         <li>dla lokalizacji: Warszawa</li>
                     </ul>
                     <div className='tables'>
@@ -231,10 +239,10 @@ const GiveThingsForm = () => {
                             <tr><th colSpan={2}>Adres odbioru:</th></tr>
                             </thead>
                             <tbody>
-                            <tr><td>Ulica</td><td>Ulica</td></tr>
-                            <tr><td>Ulica</td><td>Ulica</td></tr>
-                            <tr><td>Ulica</td><td>Ulica</td></tr>
-                            <tr><td>Ulica</td><td>Ulica</td></tr>
+                            <tr><td>Ulica</td><td>{form.street}</td></tr>
+                            <tr><td>Miasto</td><td>{form.city}</td></tr>
+                            <tr><td>Kod pocztowy</td><td>{form.postCode}</td></tr>
+                            <tr><td>Numer telefonu</td><td>{form.phone}</td></tr>
                             </tbody>
                         </table>
                         <table>
@@ -242,10 +250,9 @@ const GiveThingsForm = () => {
                             <tr><th colSpan={2}>Termin odbioru:</th></tr>
                             </thead>
                             <tbody>
-                            <tr><td>Ulica</td><td>Ulica</td></tr>
-                            <tr><td>Ulica</td><td>Ulica</td></tr>
-                            <tr><td>Ulica</td><td>Ulica</td></tr>
-                            <tr><td>Ulica</td><td>Ulica</td></tr>
+                            <tr><td>Data</td><td>{form.date}</td></tr>
+                            <tr><td>Godzina</td><td>{form.hour}</td></tr>
+                            <tr><td>Uwagi dla kuriera</td><td>{form.additionalInformation}</td></tr>
                             </tbody>
                         </table>
                     </div>
