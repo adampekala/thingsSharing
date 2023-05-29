@@ -132,11 +132,13 @@
 
 .giveThingsForm_Fieldset-selectButton {
   position: relative;
+  width: 15rem;
   border: 1px solid $fontColor;
   padding: 0.5rem 1rem;
   display: flex;
   gap: 2rem;
   align-items: center;
+  justify-content: space-around;
 
 }
 
@@ -163,6 +165,8 @@
   right: 0;
   border: 1px solid $fontColor;
   padding: 0;
+  background-color: rgb(236 237 232);
+  width: 17rem;
   li {
     padding: 0 2rem;
     &:hover {
@@ -175,5 +179,72 @@
   display: none;
 }
 
+.giveThingsForm_ButtonGroupWho_question {
+  text-align: left;
+  font-weight: bolder;
+  padding: 2rem 0 0.5rem;
+}
+.giveThingsForm_ButtonGroupWho {
+  display: inline-block;
+  margin: 0 1rem 1rem 0;
+  &:hover {
+    background-color: $contrastColor;
+  }
+}
+
+.giveThingsForm_organisationLabel {
+  display: block;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+}
+
+.giveThingsForm_organisationInput {
+  display: block;
+  border: 1px solid $fontColor;
+  font-size: 1.3rem;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  width: 30rem;
+}
+
+.giveThingsForm_adresAndDate-container {
+  display: flex;
+  gap: 2rem;
+}
+
+.giveThingsForm_adresAndDate_labelAndInput {
+  width: 30rem;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  align-items: center;
+  label {
+    padding-top: 0;
+  }
+  input {
+    width: 20rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid $fontColor;
+  }
+
+  textarea {
+    width: 20rem;
+    height: 10rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid $fontColor;
+    font-size: 1rem;
+    font-family: "Open Sans", sans-serif;
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.giveThingsForm_adresAndDate_labelAndInput:last-child {
+  align-items: flex-start;
+  textarea {
+    background-color: rgb(236 237 232);
+  }
+}
 
 

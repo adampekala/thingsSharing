@@ -10,7 +10,9 @@ const GiveThingsForm = () => {
     const [other, setOther] = useState(false);
     const [thingsArr, setThingsArr] = useState([]);
     const [selectOn, setSelectOn] = useState(false);
-    const [bags, setBags] = useState("--wybierz--")
+    const [bags, setBags] = useState("--wybierz--");
+    const [town, setTown] = useState('--wybierz--');
+    const [organisation, setOrganisation] = useState("...");
 
 
     const pageIncrease = () => {
@@ -69,6 +71,14 @@ const GiveThingsForm = () => {
 
     }
 
+    const handleSelectTown = (town) => {
+        setTown(town);
+    }
+
+    const handleChangeOrganisationInput = (event) => {
+        setOrganisation(event.target.value);
+    }
+
 
     switch (page) {
         case 2:
@@ -111,22 +121,32 @@ const GiveThingsForm = () => {
                     <div className='giveThingsForm_Fieldset-selectContainer'>
                         <span onClick={handleSelect} className='giveThingsForm_Fieldset-selectButton'>
                             <span className='giveThingsForm_Fieldset-selectButtonText'>
-                                --wybierz--
+                                — wybierz —
                                  <ul className={selectOn ? 'giveThingsForm_Fieldset-selectButtonChoiceList'
                                      :
                                      'giveThingsForm_Fieldset-selectButtonChoiceList hidden'
                                  }>
-                                     <li onClick={() => handleSelectBags(1)}>1</li>
-                                     <li onClick={() => handleSelectBags(2)}>2</li>
-                                     <li onClick={() => handleSelectBags(3)}>3</li>
-                                     <li onClick={() => handleSelectBags(4)}>4</li>
-                                     <li onClick={() => handleSelectBags(5)}>5</li>
+                                     <li onClick={() => handleSelectTown("Poznań")}>Poznań</li>
+                                     <li onClick={() => handleSelectTown("Warszawa")}>Warszawa</li>
+                                     <li onClick={() => handleSelectTown("Kraków")}>Kraków</li>
+                                     <li onClick={() => handleSelectTown("Wrocław")}>Wrocław</li>
+                                     <li onClick={() => handleSelectTown("Katowice")}>Katowice</li>
                                  </ul>
 
                             </span>
                              <span className={selectOn ? 'giveThingsForm_Fieldset-selectButtonArrowUp' : 'giveThingsForm_Fieldset-selectButtonArrowDown'}></span>
                         </span>
                     </div>
+                    <p className='giveThingsForm_ButtonGroupWho_question'>Komu chcesz pomóc?</p>
+                    <button className='giveThingsForm_ButtonGroupWho'>dzieciom</button>
+                    <button className='giveThingsForm_ButtonGroupWho'>samotnym matkom</button>
+                    <button className='giveThingsForm_ButtonGroupWho'>bezdomnym</button>
+                    <br/>
+                    <button className='giveThingsForm_ButtonGroupWho'>niepełnosprawnym</button>
+                    <button className='giveThingsForm_ButtonGroupWho'>osobom starszym</button>
+                    <label htmlFor="orgNameInput" >Wpisz nazwę konkretnej organizacji (opcjonalnie)
+                    </label>
+                    <input className='giveThingsForm_organisationInput' onChange={handleChangeOrganisationInput} id="orgNameInput" type="text" name="organisation" value={organisation}/>
                     <div className='giveThingsForm_ButtonArea'>
                         <button type='button' onClick={pageDecrease}>Wstecz</button>
                         <button type='button' onClick={pageIncrease}>Dalej</button>
@@ -138,7 +158,43 @@ const GiveThingsForm = () => {
             return (
                 <form className='giveThingsForm'>
                     <p className='giveThingsForm_page'>Krok {page}/4</p>
-                    <h1>Podaj adres oraz termin odbioru rzecz przez kuriera</h1>
+                    <h1 className='giveThingsForm_Fieldset-Legend'>Podaj adres oraz termin odbioru rzecz przez kuriera</h1>
+                    <div className='giveThingsForm_adresAndDate-container'>
+                        <div className='giveThingsForm_adresAndDate-Adres'>
+                            <p>Adres odbioru:</p>
+                            <div className='giveThingsForm_adresAndDate_labelAndInput'>
+                                <label>Ulica</label>
+                                <input name='street' value={"BBBB"}></input>
+                            </div>
+                            <div className='giveThingsForm_adresAndDate_labelAndInput'>
+                                <label>Miasto</label>
+                                <input name='city' value={"AAAA"}></input>
+                            </div>
+                            <div className='giveThingsForm_adresAndDate_labelAndInput'>
+                                <label>Kod <br/> pocztowy</label>
+                                <input name='postCode' value={"00-00"}></input>
+                            </div>
+                            <div className='giveThingsForm_adresAndDate_labelAndInput'>
+                                <label>Numer <br/> telefonu</label>
+                                <input name='phone' value={"111"}></input>
+                            </div>
+                        </div>
+                        <div className='giveThingsForm_adresAndDate-Date'>
+                            <p>Termin odbioru:</p>
+                            <div className='giveThingsForm_adresAndDate_labelAndInput'>
+                                <label>Data</label>
+                                <input name='date' value={"BBBB"}></input>
+                            </div>
+                            <div className='giveThingsForm_adresAndDate_labelAndInput'>
+                                <label>Godzina</label>
+                                <input name='hour' value={"AAAA"}></input>
+                            </div>
+                            <div className='giveThingsForm_adresAndDate_labelAndInput'>
+                                <label>Uwagi<br/> dla Kuriera</label>
+                                <textarea name='additionalInformation' value={"00-00"}></textarea>
+                            </div>
+                        </div>
+                    </div>
                     <div className='giveThingsForm_ButtonArea'>
                         <button type='button' onClick={pageDecrease}>Wstecz</button>
                         <button type='button' onClick={pageIncrease}>Dalej</button>

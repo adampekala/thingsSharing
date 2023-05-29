@@ -116,11 +116,13 @@
 
 .giveThingsForm_Fieldset-selectButton {
   position: relative;
+  width: 15rem;
   border: 1px solid #3C3C3C;
   padding: 0.5rem 1rem;
   display: flex;
   gap: 2rem;
   align-items: center;
+  justify-content: space-around;
 }
 
 .giveThingsForm_Fieldset-selectButtonArrowDown {
@@ -145,6 +147,8 @@
   right: 0;
   border: 1px solid #3C3C3C;
   padding: 0;
+  background-color: rgb(236, 237, 232);
+  width: 17rem;
 }
 .giveThingsForm_Fieldset-selectButtonChoiceList li {
   padding: 0 2rem;
@@ -155,6 +159,74 @@
 
 .giveThingsForm_Fieldset-selectButtonChoiceList.hidden {
   display: none;
+}
+
+.giveThingsForm_ButtonGroupWho_question {
+  text-align: left;
+  font-weight: bolder;
+  padding: 2rem 0 0.5rem;
+}
+
+.giveThingsForm_ButtonGroupWho {
+  display: inline-block;
+  margin: 0 1rem 1rem 0;
+}
+.giveThingsForm_ButtonGroupWho:hover {
+  background-color: #FAD648;
+}
+
+.giveThingsForm_organisationLabel {
+  display: block;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+}
+
+.giveThingsForm_organisationInput {
+  display: block;
+  border: 1px solid #3C3C3C;
+  font-size: 1.3rem;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  width: 30rem;
+}
+
+.giveThingsForm_adresAndDate-container {
+  display: flex;
+  gap: 2rem;
+}
+
+.giveThingsForm_adresAndDate_labelAndInput {
+  width: 30rem;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  align-items: center;
+}
+.giveThingsForm_adresAndDate_labelAndInput label {
+  padding-top: 0;
+}
+.giveThingsForm_adresAndDate_labelAndInput input {
+  width: 20rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid #3C3C3C;
+}
+.giveThingsForm_adresAndDate_labelAndInput textarea {
+  width: 20rem;
+  height: 10rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid #3C3C3C;
+  font-size: 1rem;
+  font-family: "Open Sans", sans-serif;
+}
+.giveThingsForm_adresAndDate_labelAndInput textarea:focus {
+  outline: none;
+}
+
+.giveThingsForm_adresAndDate_labelAndInput:last-child {
+  align-items: flex-start;
+}
+.giveThingsForm_adresAndDate_labelAndInput:last-child textarea {
+  background-color: rgb(236, 237, 232);
 }
 
 /*# sourceMappingURL=formComponent.css.map */
