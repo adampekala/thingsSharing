@@ -10,8 +10,9 @@ const GiveThingsForm = () => {
     const [other, setOther] = useState(false);
     const [thingsArr, setThingsArr] = useState([]);
     const [selectOn, setSelectOn] = useState(false);
-    const [bags, setBags] = useState("--wybierz--");
-    const [town, setTown] = useState('--wybierz--');
+    const [bags, setBags] = useState("— wybierz —");
+    const [town, setTown] = useState("— wybierz —");
+    const [whoHelp, setWhoHelp] = useState([])
     const [organisation, setOrganisation] = useState("...");
     const [form, setForm] = useState(
         {
@@ -30,6 +31,10 @@ const GiveThingsForm = () => {
     }
     const pageDecrease = () => {
         setPage((prev)=> prev - 1 )
+    }
+
+    const handleOnSubmit = (event) => {
+        event.preventDefault();
     }
 
     const checkboxSelected1 = (event) => {
@@ -85,6 +90,15 @@ const GiveThingsForm = () => {
         setTown(town);
     }
 
+    const handleChoseWhoHelp = (purpose) => {
+        whoHelp.every((el) => el !== purpose)
+            ?
+        setWhoHelp((prev)=> [...prev, purpose])
+            :
+        setWhoHelp(prev => prev.filter(el => el !== purpose))
+
+    }
+
     const handleChangeOrganisationInput = (event) => {
         setOrganisation(event.target.value);
     }
@@ -98,14 +112,14 @@ const GiveThingsForm = () => {
     switch (page) {
         case 2:
             return (
-                <form className='giveThingsForm'>
+                <form onSubmit={handleOnSubmit} className='giveThingsForm'>
                     <p className='giveThingsForm_page'>Krok {page}/4</p>
                     <h1 className='giveThingsForm_Fieldset-Legend'>Podaj liczbę 60l worków, w które spakowałeś/aś rzeczy:</h1>
                     <div className='giveThingsForm_Fieldset-selectContainer'>
                         <span>Liczba 60l worków:</span>
                         <span onClick={handleSelect} className='giveThingsForm_Fieldset-selectButton'>
                             <span className='giveThingsForm_Fieldset-selectButtonText'>
-                                --wybierz--
+                                {bags}
                                  <ul className={selectOn ? 'giveThingsForm_Fieldset-selectButtonChoiceList'
                                  :
                                      'giveThingsForm_Fieldset-selectButtonChoiceList hidden'
@@ -130,13 +144,13 @@ const GiveThingsForm = () => {
             );
         case 3:
             return (
-                <form className='giveThingsForm'>
+                <form onSubmit={handleOnSubmit} className='giveThingsForm'>
                     <p className='giveThingsForm_page'>Krok {page}/4</p>
                     <h1 className='giveThingsForm_Fieldset-Legend'>Lokalizacja:</h1>
                     <div className='giveThingsForm_Fieldset-selectContainer'>
                         <span onClick={handleSelect} className='giveThingsForm_Fieldset-selectButton'>
                             <span className='giveThingsForm_Fieldset-selectButtonText'>
-                                — wybierz —
+                                {town}
                                  <ul className={selectOn ? 'giveThingsForm_Fieldset-selectButtonChoiceList'
                                      :
                                      'giveThingsForm_Fieldset-selectButtonChoiceList hidden'
@@ -153,12 +167,12 @@ const GiveThingsForm = () => {
                         </span>
                     </div>
                     <p className='giveThingsForm_ButtonGroupWho_question'>Komu chcesz pomóc?</p>
-                    <button className='giveThingsForm_ButtonGroupWho'>dzieciom</button>
-                    <button className='giveThingsForm_ButtonGroupWho'>samotnym matkom</button>
-                    <button className='giveThingsForm_ButtonGroupWho'>bezdomnym</button>
+                    <button onClick={() => handleChoseWhoHelp("dzieciom")} className='giveThingsForm_ButtonGroupWho'>dzieciom</button>
+                    <button onClick={() => handleChoseWhoHelp("samotnym matkom")} className='giveThingsForm_ButtonGroupWho'>samotnym matkom</button>
+                    <button onClick={() => handleChoseWhoHelp("bezdomnym")} className='giveThingsForm_ButtonGroupWho'>bezdomnym</button>
                     <br/>
-                    <button className='giveThingsForm_ButtonGroupWho'>niepełnosprawnym</button>
-                    <button className='giveThingsForm_ButtonGroupWho'>osobom starszym</button>
+                    <button onClick={() => handleChoseWhoHelp("niepełnosprawnym")} className='giveThingsForm_ButtonGroupWho'>niepełnosprawnym</button>
+                    <button onClick={() => handleChoseWhoHelp("osobom starszym")} className='giveThingsForm_ButtonGroupWho'>osobom starszym</button>
                     <label htmlFor="orgNameInput" >Wpisz nazwę konkretnej organizacji (opcjonalnie)
                     </label>
                     <input className='giveThingsForm_organisationInput' onChange={handleChangeOrganisationInput} id="orgNameInput" type="text" name="organisation" value={organisation}/>
@@ -171,7 +185,7 @@ const GiveThingsForm = () => {
             );
         case 4:
             return (
-                <form className='giveThingsForm'>
+                <form onSubmit={handleOnSubmit} className='giveThingsForm'>
                     <p className='giveThingsForm_page'>Krok {page}/4</p>
                     <h1 className='giveThingsForm_Fieldset-Legend'>Podaj adres oraz termin odbioru rzecz przez kuriera</h1>
                     <div className='giveThingsForm_adresAndDate-container'>
@@ -223,15 +237,15 @@ const GiveThingsForm = () => {
                     <p>Oddajesz:</p>
                     <ul>
                         <li>
-                            { bags }
+                            { bags }{" "}
                             {bags === 1 && "worek"}
                             {bags === 2 && "worki"}
                             {bags === 3 && "worki"}
                             {bags === 4 && "worki"}
                             {bags === 5 && "worków"}
                             {bags === 6 && "worków"}
-                            , ubrania w dobrym stanie, dzieciom</li>
-                        <li>dla lokalizacji: Warszawa</li>
+                            <strong>|</strong> {thingsArr.join(", ")}<strong>|</strong> {whoHelp.join(", ")}</li>
+                        <li>dla lokalizacji: {town}</li>
                     </ul>
                     <div className='tables'>
                         <table>
@@ -267,7 +281,7 @@ const GiveThingsForm = () => {
 
         default:
             return (
-                <form className='giveThingsForm'>
+                <form onSubmit={handleOnSubmit} className='giveThingsForm'>
                     <p className='giveThingsForm_page'>Krok {page}/4</p>
                     <h1 className='giveThingsForm_Fieldset-Legend'>Zaznacz co chcesz oddać:</h1>
                     <fieldset className='giveThingsForm_Fieldset'>
