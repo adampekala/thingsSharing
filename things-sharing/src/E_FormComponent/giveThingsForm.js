@@ -90,7 +90,7 @@ const GiveThingsForm = () => {
     const handleSelectTown = (town) => {
         setTown(town);
     }
-
+    //TODO change color of buttons
     const handleChoseWhoHelp = (purpose) => {
         whoHelp.every((el) => el !== purpose)
             ?
