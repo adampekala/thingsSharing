@@ -1,7 +1,11 @@
 import React, {useState} from "react";
 import '../App.scss'
+import {useDispatch} from "react-redux";
+import {sentFormToRedux} from "../actions";
+import decoration from '../Z_Images/Decoration.png'
 
 const GiveThingsForm = () => {
+
     const [page, setPage] = useState(1);
     const [goodThings, setGoodThings] = useState(false);
     const [badThings, setBadThings] = useState(false);
@@ -14,7 +18,7 @@ const GiveThingsForm = () => {
     const [town, setTown] = useState("— wybierz —");
     const [whoHelp, setWhoHelp] = useState([])
     const [organisation, setOrganisation] = useState("...");
-    const [form, setForm] = useState(
+    const [timeAndAdressForm, setTimeAndAdressForm] = useState(
         {
             street: "..",
             city: "..",
@@ -53,7 +57,7 @@ const GiveThingsForm = () => {
         setOther((prev) => !prev);
     }
 //TODO redux
-    const sentFirstPageToRedux = () => {
+    const handleCreatingThingsArr = () => {
 
         let arr = [];
 
@@ -65,15 +69,12 @@ const GiveThingsForm = () => {
         console.log(arr);
         setThingsArr(arr);
 
-        // const addNeeds = () => {
-        //     return { type: ADD_NEEDS,
-        //     needs: arr}
-        // }
+
 
     }
 
     const handleDalejBtnClick = (event) => {
-        page === 1 && sentFirstPageToRedux();
+        page === 1 && handleCreatingThingsArr();
         pageIncrease()
     }
 
@@ -105,7 +106,20 @@ const GiveThingsForm = () => {
 
     const handleChangeOtherFormInputs = (event) => {
         const {name, value} = event.target;
-        setForm((prevState) => ({...prevState, [name]: value}))
+        setTimeAndAdressForm((prevState) => ({...prevState, [name]: value}))
+    }
+
+    const dispatch = useDispatch();
+
+    const handleConfirmClick = () => {
+        dispatch(sentFormToRedux(thingsArr,
+            bags,
+            town,
+            whoHelp,
+            organisation,
+            timeAndAdressForm));
+        console.log('potwierdzenie');
+        setPage(6);
     }
 
 
@@ -193,34 +207,34 @@ const GiveThingsForm = () => {
                             <p>Adres odbioru:</p>
                             <div className='giveThingsForm_adresAndDate_labelAndInput'>
                                 <label>Ulica</label>
-                                <input onChange={handleChangeOtherFormInputs} type='text' name='street' value={form.street}></input>
+                                <input onChange={handleChangeOtherFormInputs} type='text' name='street' value={timeAndAdressForm.street}></input>
                             </div>
                             <div className='giveThingsForm_adresAndDate_labelAndInput'>
                                 <label>Miasto</label>
-                                <input onChange={handleChangeOtherFormInputs} type='text' name='city' value={form.city}></input>
+                                <input onChange={handleChangeOtherFormInputs} type='text' name='city' value={timeAndAdressForm.city}></input>
                             </div>
                             <div className='giveThingsForm_adresAndDate_labelAndInput'>
                                 <label>Kod <br/> pocztowy</label>
-                                <input onChange={handleChangeOtherFormInputs} type='text' name='postCode' value={form.postCode}></input>
+                                <input onChange={handleChangeOtherFormInputs} type='text' name='postCode' value={timeAndAdressForm.postCode}></input>
                             </div>
                             <div className='giveThingsForm_adresAndDate_labelAndInput'>
                                 <label>Numer <br/> telefonu</label>
-                                <input onChange={handleChangeOtherFormInputs} type='number' name='phone' value={form.phone}></input>
+                                <input onChange={handleChangeOtherFormInputs} type='number' name='phone' value={timeAndAdressForm.phone}></input>
                             </div>
                         </div>
                         <div className='giveThingsForm_adresAndDate-Date'>
                             <p>Termin odbioru:</p>
                             <div className='giveThingsForm_adresAndDate_labelAndInput'>
                                 <label>Data</label>
-                                <input onChange={handleChangeOtherFormInputs} type='date' name='date' value={form.date}></input>
+                                <input onChange={handleChangeOtherFormInputs} type='date' name='date' value={timeAndAdressForm.date}></input>
                             </div>
                             <div className='giveThingsForm_adresAndDate_labelAndInput'>
                                 <label>Godzina</label>
-                                <input onChange={handleChangeOtherFormInputs} type='time' name='hour' value={form.hour}></input>
+                                <input onChange={handleChangeOtherFormInputs} type='time' name='hour' value={timeAndAdressForm.hour}></input>
                             </div>
                             <div className='giveThingsForm_adresAndDate_labelAndInput'>
                                 <label>Uwagi<br/> dla Kuriera</label>
-                                <textarea onChange={handleChangeOtherFormInputs} name='additionalInformation' value={form.additionalInformation}></textarea>
+                                <textarea onChange={handleChangeOtherFormInputs} name='additionalInformation' value={timeAndAdressForm.additionalInformation}></textarea>
                             </div>
                         </div>
                     </div>
@@ -253,10 +267,10 @@ const GiveThingsForm = () => {
                             <tr><th colSpan={2}>Adres odbioru:</th></tr>
                             </thead>
                             <tbody>
-                            <tr><td>Ulica</td><td>{form.street}</td></tr>
-                            <tr><td>Miasto</td><td>{form.city}</td></tr>
-                            <tr><td>Kod pocztowy</td><td>{form.postCode}</td></tr>
-                            <tr><td>Numer telefonu</td><td>{form.phone}</td></tr>
+                            <tr><td>Ulica</td><td>{timeAndAdressForm.street}</td></tr>
+                            <tr><td>Miasto</td><td>{timeAndAdressForm.city}</td></tr>
+                            <tr><td>Kod pocztowy</td><td>{timeAndAdressForm.postCode}</td></tr>
+                            <tr><td>Numer telefonu</td><td>{timeAndAdressForm.phone}</td></tr>
                             </tbody>
                         </table>
                         <table>
@@ -264,20 +278,33 @@ const GiveThingsForm = () => {
                             <tr><th colSpan={2}>Termin odbioru:</th></tr>
                             </thead>
                             <tbody>
-                            <tr><td>Data</td><td>{form.date}</td></tr>
-                            <tr><td>Godzina</td><td>{form.hour}</td></tr>
-                            <tr><td>Uwagi dla kuriera</td><td>{form.additionalInformation}</td></tr>
+                            <tr><td>Data</td><td>{timeAndAdressForm.date}</td></tr>
+                            <tr><td>Godzina</td><td>{timeAndAdressForm.hour}</td></tr>
+                            <tr><td>Uwagi dla kuriera</td><td>{timeAndAdressForm.additionalInformation}</td></tr>
                             </tbody>
                         </table>
                     </div>
                         <div className='giveThingsForm_ButtonArea'>
                             <button type='button' onClick={pageDecrease}>Wstecz</button>
-                            <button type='button' onClick={() => console.log("potwierdzenie")}>Potwierdzam</button>
+                            <button type='button' onClick={handleConfirmClick}>Potwierdzam</button>
                         </div>
                     </div>
 
 
             );
+
+        case 6:
+            return (
+            <div className='giveThingsForm'>
+                <div className='giveThingsForm_container'>
+                    <div className='giveThingsForm_thanks'>
+                        <p>Dziękujemy za przesłanie formularza Na maila prześlemy wszelkie informacje o odbiorze.</p>
+                        <img src={decoration}/>
+                    </div>
+
+                </div>
+            </div>
+                )
 
         default:
             return (
