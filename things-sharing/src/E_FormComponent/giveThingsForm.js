@@ -1,8 +1,11 @@
 import React, {useState} from "react";
 import '../App.scss'
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {sentFormToRedux} from "../actions";
-import decoration from '../Z_Images/Decoration.png'
+import decoration from '../Z_Images/Decoration.png';
+import { addDoc, collection } from 'firebase/firestore';
+import {db} from "../firebase/firebaseConfig";
+
 
 const GiveThingsForm = () => {
 
@@ -17,16 +20,16 @@ const GiveThingsForm = () => {
     const [bags, setBags] = useState("— wybierz —");
     const [town, setTown] = useState("— wybierz —");
     const [whoHelp, setWhoHelp] = useState([])
-    const [organisation, setOrganisation] = useState("...");
+    const [organisation, setOrganisation] = useState("");
     const [timeAndAdressForm, setTimeAndAdressForm] = useState(
         {
-            street: "..",
-            city: "..",
-            postCode: "..",
-            phone: "..",
-            date: "..",
-            hour: "..",
-            additionalInformation: ".."}
+            street: "",
+            city: "",
+            postCode: "",
+            phone: "",
+            date: "",
+            hour: "",
+            additionalInformation: ""}
     )
 
 
@@ -111,7 +114,7 @@ const GiveThingsForm = () => {
 
     const dispatch = useDispatch();
 
-    const handleConfirmClick = () => {
+    const handleLastDalejClick = () => {
         dispatch(sentFormToRedux(thingsArr,
             bags,
             town,
@@ -119,8 +122,39 @@ const GiveThingsForm = () => {
             organisation,
             timeAndAdressForm));
         console.log('potwierdzenie');
-        setPage(6);
+        setPage(5);
     }
+
+    const reduxCollection = useSelector((prev) => prev.collection);
+    const collectionRef = collection(db, "collections");
+
+    const handleConfirmationClick = async () => {
+        try {
+            await addDoc(collectionRef, {
+                thingsArr: reduxCollection.thingsArr,
+                bags: reduxCollection.bags,
+                town: reduxCollection.town,
+                whoHelp: reduxCollection.whoHelp,
+                organisation: reduxCollection.organisation,
+                street: reduxCollection.timeAndAdressForm.street,
+                city: reduxCollection.timeAndAdressForm.city,
+                postCode: reduxCollection.timeAndAdressForm.postCode,
+                phone: reduxCollection.timeAndAdressForm.phone,
+                date: reduxCollection.timeAndAdressForm.date,
+                hour: reduxCollection.timeAndAdressForm.hour,
+                additionalInformation: reduxCollection.timeAndAdressForm.additionalInformation
+            })
+            setPage(6);
+            console.log('potwierdzenie');
+
+        } catch (error) {
+            console.log(error);
+        }
+
+
+    }
+
+
 
 
     switch (page) {
@@ -240,7 +274,7 @@ const GiveThingsForm = () => {
                     </div>
                     <div className='giveThingsForm_ButtonArea'>
                         <button type='button' onClick={pageDecrease}>Wstecz</button>
-                        <button type='button' onClick={pageIncrease}>Dalej</button>
+                        <button type='button' onClick={handleLastDalejClick}>Dalej</button>
                     </div>
                 </form>
             );
@@ -251,6 +285,7 @@ const GiveThingsForm = () => {
                     <p>Oddajesz:</p>
                     <ul>
                         <li>
+
                             { bags }{" "}
                             {bags === 1 && "worek"}
                             {bags === 2 && "worki"}
@@ -286,7 +321,7 @@ const GiveThingsForm = () => {
                     </div>
                         <div className='giveThingsForm_ButtonArea'>
                             <button type='button' onClick={pageDecrease}>Wstecz</button>
-                            <button type='button' onClick={handleConfirmClick}>Potwierdzam</button>
+                            <button type='button' onClick={handleConfirmationClick}>Potwierdzam</button>
                         </div>
                     </div>
 
