@@ -10,14 +10,13 @@ import { useNavigate } from "react-router-dom"
 const HeroRightArea = () => {
     const navigate = useNavigate();
     return (
-        <div>
+        <div className = 'heroRightArea'>
             <LoginPanel />
             <Navigation/>
             <header id='start' className='header'>
                 <h1 className='headerTitle'>Zacznij pomagać! <br/> Oddaj niechciane rzeczy w zaufane ręce</h1>
                 <img src={Decoration} alt='dekoracja'/>
                 <div className='headerButtons'>
-                    //TODO to repeat, add condition
                     <button type='button' onClick={() => navigate("/form")}>ODDAJ <br/> RZECZY</button>
                     <button type='button'>ZORGANIZUJ <br/> ZBIÓRKĘ</button>
                 </div>

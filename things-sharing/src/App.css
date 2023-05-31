@@ -313,11 +313,58 @@
   font-style: italic;
   font-display: swap;
 }
-:root {
-  font-size: 14px;
+@media (max-width: 850px) {
+  :root {
+    font-size: 7px;
+  }
 }
-
+@media (min-width: 850px) {
+  :root {
+    font-size: 7px;
+  }
+}
+@media (min-width: 950px) {
+  :root {
+    font-size: 8px;
+  }
+}
+@media (min-width: 1050px) {
+  :root {
+    font-size: 9px;
+  }
+}
+@media (min-width: 1150px) {
+  :root {
+    font-size: 10px;
+  }
+}
+@media (min-width: 1250px) {
+  :root {
+    font-size: 11px;
+  }
+}
+@media (min-width: 1350px) {
+  :root {
+    font-size: 12px;
+  }
+}
+@media (min-width: 1450px) {
+  :root {
+    font-size: 13px;
+  }
+}
+@media (min-width: 1550px) {
+  :root {
+    font-size: 14px;
+  }
+}
+@media (min-width: 1650px) {
+  :root {
+    font-size: 15px;
+  }
+}
 body {
+  background-color: #efefef;
   box-sizing: border-box;
   margin: 0;
   padding: 0;

@@ -9,7 +9,7 @@ import torba from '../c_howTo/howToImages/IconTorba.png'
 const HowTo = () => {
     return (
         <>
-            <div>
+            <div className='howTo_header'>
                 <h1 className='howTo_header'>Wystarczą 4 proste kroki</h1>
                 <img src={decoration} alt='dekoracja'/>
             </div>

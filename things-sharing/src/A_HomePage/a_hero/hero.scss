@@ -1,11 +1,20 @@
 @use 'sass:color';
+@import "./Z_OtherSCSSvariables/otherVariables";
 @import "./src/Z_Colors/colors";
 
+
 .hero {
+  max-width: $maxWidth;
   margin: 0 auto;
-  max-width: 1200px;
+  padding: 0 5rem;
+  background-color: white;
+  background-image: url("./HeroImage.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-x: -30rem;
   display: flex;
   flex-wrap: nowrap;
+  justify-content: flex-end;
   gap: 3rem;
   button {
     font-family: "Open Sans", sans-serif;
@@ -14,21 +23,19 @@
   }
 }
 
-.heroPictureDiv {
+@media (max-width: 750px) {
+  .hero {
+    background-image: none;
+    background-size: contain;
+    justify-content: center;
 
-    width: 700px;
-    height: 900px;
-    background-image: url("HeroImage.png");
-    background-repeat: no-repeat;
-    background-position-y: center;
-    background-position-x: -280px;
-    background-size: 160%;
-
+  }
 
 }
 
-.heroLeftArea {
-  flex-grow: 1;
+.heroRightArea {
+  padding-bottom: 20rem;
+  background-color: white;
 
 }
 

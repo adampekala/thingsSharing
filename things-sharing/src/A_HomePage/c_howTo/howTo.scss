@@ -1,14 +1,17 @@
 @use 'sass:color';
 @import '../../Z_StylingCommonsSCSS/mixins';
+@import "Z_OtherSCSSvariables/otherVariables";
+@import "../../Z_Colors/colors";
 
 .howTo {
-  margin: 2rem auto 0;
-  background-color: #F0F1F1;
+  max-width: $maxWidth;
+  margin: 0 auto;
+  background-color: lighten($grey, 40%);
   display: flex;
   flex-wrap: nowrap;
   gap: 3rem;
   justify-content: space-around;
-  padding: 2rem 8rem;
+  padding: 4rem 5rem 2rem;
   article {
     display: flex;
     flex-direction: column;
@@ -40,9 +43,56 @@
     }
   }
 }
+.howTo_header {
+  max-width: $maxWidth;
+  margin: 0 auto;
+  padding: 2rem 5rem 2rem;
+  background-color: white;
+}
+
 .howToBtn {
   @include button();
   margin: 2rem auto;
 
 }
 
+@media (max-width: 800px) {
+  .howTo {
+    flex-wrap: wrap;
+    padding: 3rem 25rem;
+
+  }
+}
+
+@media (max-width: 700px) {
+  .howTo {
+    flex-wrap: wrap;
+    padding: 3rem 20rem;
+
+  }
+}
+
+@media (max-width: 600px) {
+  .howTo {
+    flex-wrap: wrap;
+    padding: 3rem 10rem;
+
+  }
+}
+
+@media (max-width: 500px) {
+  .howTo {
+    flex-wrap: wrap;
+    padding: 3rem 5rem;
+
+  }
+}
+
+
+@media (max-width: 400px) {
+  .howTo {
+    flex-direction: column;
+    padding: 3rem 5rem;
+
+  }
+}

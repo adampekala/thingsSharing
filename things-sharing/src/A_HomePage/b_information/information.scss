@@ -1,15 +1,16 @@
 @use 'sass:color';
 @import "./src/Z_Colors/colors";
+@import "Z_OtherSCSSvariables/otherVariables";
 
 .information {
-  //max-width: 1200px;
+  max-width: $maxWidth;
   margin: 0 auto;
   background-image: url("./3 Columns Background.png");
   display: flex;
   flex-wrap: nowrap;
   gap: 3rem;
   justify-content: space-around;
-  padding: 2rem 8rem;
+  padding: 2rem 5rem;
   article {
     display: flex;
     flex-direction: column;

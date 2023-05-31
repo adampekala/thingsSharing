@@ -29,4 +29,19 @@
   background-size: cover;
 }
 
+@media (max-width: 750px) {
+  .aboutUs {
+    justify-content: center;
+  }
+  .aboutUs article p {
+    padding: 0;
+  }
+  .aboutUsImage {
+    display: none;
+  }
+  img {
+    width: 20rem;
+  }
+}
+
 /*# sourceMappingURL=aboutUs.css.map */

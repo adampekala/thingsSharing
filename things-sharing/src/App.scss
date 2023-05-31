@@ -1,17 +1,28 @@
+@use "sass:color";
 @import "Z_Fonts/fonts";
 @import "Z_Colors/colors";
 
-:root {
-  font-size: 14px;
+@media (max-width: 850px) {
+  :root {
+    font-size: 7px;
+  }
+}
+@for $i from 0 through 8 {
+  @media (min-width: 850px + ($i * 100px)) {
+    :root {
+      font-size: 7px + $i * 1px;
+    }
+  }
 }
 
 body {
+  background-color: lighten($fontColor, 70%);
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   color: $fontColor;
   font-family: "Open Sans", sans-serif;
-  
+
 }
 
 h1 {

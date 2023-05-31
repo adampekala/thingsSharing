@@ -31,3 +31,23 @@
   background-size: cover;
 }
 
+@media (max-width: 750px) {
+  .aboutUs {
+    justify-content: center;
+
+    article {
+      p {
+        padding: 0;
+      }
+    }
+  }
+  .aboutUsImage {
+    display: none;
+  }
+
+  img {
+    width: 20rem;
+
+  }
+}
+

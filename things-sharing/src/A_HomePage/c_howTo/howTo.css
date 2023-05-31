@@ -1,52 +1,17 @@
-.howTo {
-  margin: 2rem auto 0;
-  background-color: #F0F1F1;
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 3rem;
-  justify-content: space-around;
-  padding: 2rem 8rem;
-}
-.howTo article {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-}
-.howTo article img {
-  padding-top: 2rem;
-}
-.howTo article hr {
-  text-align: center;
-  color: black;
-  background-color: black;
-  height: 1px;
-  width: 60%;
-}
-.howTo article h3 {
-  text-align: center;
-  margin: 0;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  font-size: 1.3rem;
-  font-weight: normal;
-}
-.howTo article p {
-  text-align: center;
-  line-height: 2rem;
-  padding: 0 2rem 3rem;
-}
+/* Error: Can't find stylesheet to import.
+ *   ,
+ * 3 | @import "Z_OtherSCSSvariables/otherVariables";
+ *   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ *   '
+ *   howTo.scss 3:9  root stylesheet */
 
-.howToBtn {
-  background-color: transparent;
-  border-radius: 0;
-  border: 1px solid #3C3C3C;
-  padding: 3rem 5rem;
-  font-size: 3rem;
-  margin: 2rem auto;
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Can't find stylesheet to import.\a   \2577 \a 3 \2502  @import \"Z_OtherSCSSvariables/otherVariables\";\a   \2502          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\a   \2575 \a   howTo.scss 3:9  root stylesheet";
 }
-.howToBtn:hover {
-  background-color: #e6e6e6;
-}
-
-/*# sourceMappingURL=howTo.css.map */
