@@ -1,8 +1,11 @@
+@import "Z_OtherSCSSvariables/otherVariables";
 .footer {
-  background-color: transparent;
+  max-width: $maxWidth;
+  background-color: white;
   display: flex;
   align-items: center;
   z-index: 1;
+  padding: 2rem 0 5rem;
 }
 .footerCopyright {
   text-align: center;
