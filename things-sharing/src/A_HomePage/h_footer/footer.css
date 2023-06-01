@@ -1,24 +1,17 @@
-.footer {
-  background-color: transparent;
-  display: flex;
-  align-items: center;
-  z-index: 1;
-}
+/* Error: Can't find stylesheet to import.
+ *   ,
+ * 1 | @import "Z_OtherSCSSvariables/otherVariables";
+ *   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ *   '
+ *   footer.scss 1:9  root stylesheet */
 
-.footerCopyright {
-  text-align: center;
-  font-size: 1.2rem;
-  flex-grow: 1;
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Can't find stylesheet to import.\a   \2577 \a 1 \2502  @import \"Z_OtherSCSSvariables/otherVariables\";\a   \2502          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\a   \2575 \a   footer.scss 1:9  root stylesheet";
 }
-
-.footerSocialMediaLinks {
-  padding-right: 10rem;
-  display: flex;
-  gap: 1rem;
-}
-.footerSocialMediaLinks img {
-  width: 4rem;
-  aspect-ratio: 1;
-}
-
-/*# sourceMappingURL=footer.css.map */

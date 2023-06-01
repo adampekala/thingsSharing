@@ -1,5 +1,63 @@
 @import "../Z_Colors/colors";
 
+.navigationContainer {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  h1 {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.navigationBurger {
+  box-sizing: border-box;
+  width: 45px;
+  height: 45px;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  &:hover {
+    .navigationBurger_line {
+      background-color: lighten($fontColor, 40%);
+    }
+  }
+  &.cross {
+    .navigationBurger_line:first-child {
+        transform: rotate(45deg) translate(4px, 8px);
+    }
+    .navigationBurger_line:nth-child(2) {
+        transform: rotate(-45deg) translate(-2px, -1px);
+
+    }
+    .navigationBurger_line:last-child {
+      display: none;
+    }
+  }
+}
+
+.navigationBurger_line {
+  width: 30px;
+  height: 4px;
+  background-color: $fontColor;
+  border-radius: 2px;
+}
+
+@media (min-width: 430px) {
+  .navigationBurger {
+    display: none;
+  }
+  .navigationTitle {
+    display: none;
+  }
+}
+
+
+
 .navigation {
   //position: fixed;
   //right: 5rem;
@@ -18,7 +76,29 @@
     }
     .active {
       padding: 0.5rem 0;
-      border: 1px solid $fontColor;
     }
+  }
+}
+
+@media (max-width: 430px) {
+  .navigation {
+    position: absolute;
+    background-color: $contrastColor;
+    width: 100%;
+    flex-direction: column;
+    top: 35px;
+    //left: -4rem;
+    padding: 0;
+    li {
+      padding-left: 4rem;
+      font-size: 2rem;
+    }
+
+  }
+  .navigation.hidden {
+    left: -99999rem;
+
+
+
   }
 }
