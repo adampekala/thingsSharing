@@ -1,7 +1,9 @@
 @use "../../Z_StylingCommonsSCSS/mixins";
 @use "../../Z_Colors/colors";
+@import "Z_OtherSCSSvariables/otherVariables";
 
 .formContainer {
+  max-width: $maxWidth;
   background-image: url("./images/Background Image.png");
   background-repeat: no-repeat;
   background-size: 100rem;
