@@ -58,13 +58,13 @@ const LoginPanel = () => {
 
     return (
         loggedUser ?
-            <div className='loginPanel'>
+            <div className='loginPanel' id="loginPanel">
                 <p className='loginPanel_userInformation'>Cześć {loggedUser.user.email}</p>
                 <button type='button' className='loginPanel_signInBtn'>Oddaj rzeczy</button>
                 <button type='button' className='loginPanel_signOutBtn' onClick={logOut}>Wyloguj konto</button>
             </div>
             :
-            <div className='loginPanel'>
+            <div className='loginPanel' id="loginPanel">
                 <button type='button' className='loginPanel_logInBtn' onClick={handleLogInLink}>Zaloguj</button>
                 <button type='button' className='loginPanel_signInBtn' onClick={handleRegistrationLink}>Załóż konto</button>
             </div>
