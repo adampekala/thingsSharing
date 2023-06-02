@@ -1,17 +1,18 @@
 @import "Z_OtherSCSSvariables/otherVariables";
 .footer {
   max-width: $maxWidth;
-  background-color: white;
+  background-color: transparent;
   display: flex;
   align-items: center;
   z-index: 1;
-  padding: 2rem 0 5rem;
+  padding: 0 0 1rem;
 }
 .footerCopyright {
   text-align: center;
   font-size: 1.2rem;
   flex-grow: 1;
 }
+
 .footerSocialMediaLinks {
   padding-right: 10rem;
   display: flex;
@@ -19,6 +20,20 @@
   img {
       width: 4rem;
       aspect-ratio: 1;
+  }
+}
+
+@media (max-width: 750px) {
+  .footer {
+    justify-content: center;
+    gap: 20rem;
+  }
+  .footerCopyright {
+    flex-grow: 0;
+  }
+  .footerSocialMediaLinks {
+    justify-content: flex-end;
+    padding: 0;
   }
 }
 
