@@ -1,10 +1,24 @@
 @use 'sass:color';
 @import '../../Z_StylingCommonsSCSS/mixins';
+@import '../../Z_Colors/colors';
+@import "Z_OtherSCSSvariables/otherVariables";
 
 .whoWeHelp {
-display: flex;
+  max-width: $maxWidth;
+  margin: 0 auto;
+  padding-top: 6rem;
+  background-color: white;
+  display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+@media (max-width: 400px) {
+  .whoWeHelp {
+    img {
+      width: 20rem;
+    }
+  }
 }
 .whoWeHelpBtn {
   margin-top: 4rem;
@@ -17,6 +31,17 @@ display: flex;
     width: 15rem;
   }
 }
+
+@media (max-width: 370px) {
+  .whoWeHelpBtn {
+    flex-direction: column;
+    align-items: center;
+    button {
+      width: 30rem;
+      font-size: 2rem;
+    }
+  }
+}
 .whoWeHelpText {
   margin: 0 auto;
   width: 50%;
@@ -25,13 +50,19 @@ display: flex;
 .whoWeHelpTable {
   margin: 5rem auto 5rem;
   border-collapse: collapse;
+  height: 23rem;
   tr {
+    border-bottom: 1px solid black;
+    vertical-align: top;
+  }
+
+  tr:last-child {
+    border: none;
   }
   th {
     font-size: 1.9rem;
     text-align: left;
     width: 65%;
-    border-bottom: 1px solid black;
     small {
       font-size: 1.3rem;
       font-weight: normal;
@@ -40,7 +71,20 @@ display: flex;
   td {
     text-align: right;
     font-size: 1.3rem;
-    border-bottom: 1px solid black;
+  }
+}
+
+@media (max-width: 590px) {
+  .whoWeHelpTable {
+    margin: 4rem 3rem 0.5rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .whoWeHelpTable {
+    td {
+      display: none;
+    }
   }
 }
 
