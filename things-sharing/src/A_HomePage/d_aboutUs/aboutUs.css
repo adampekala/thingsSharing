@@ -1,5 +1,7 @@
 .aboutUs {
-  margin: 6rem auto;
+  max-width: 1600px;
+  background-color: #d9d9d9;
+  margin: 0 auto;
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
@@ -36,11 +38,12 @@
   .aboutUs article p {
     padding: 0;
   }
+  .aboutUs img {
+    width: 20rem;
+    padding-bottom: 2rem;
+  }
   .aboutUsImage {
     display: none;
-  }
-  img {
-    width: 20rem;
   }
 }
 
