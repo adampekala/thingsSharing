@@ -1,7 +1,10 @@
 @use 'sass:color';
+@import "../../Z_Colors/colors";
 
 .aboutUs {
-  margin: 6rem auto;
+  max-width: 1600px;
+  background-color: lighten($grey, 40%);
+  margin: 0 auto;
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
@@ -40,14 +43,17 @@
         padding: 0;
       }
     }
+
+    img {
+      width: 20rem;
+      padding-bottom: 2rem;
+
+    }
   }
   .aboutUsImage {
     display: none;
   }
 
-  img {
-    width: 20rem;
 
-  }
 }
 
