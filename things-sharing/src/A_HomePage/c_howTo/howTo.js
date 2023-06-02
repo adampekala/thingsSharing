@@ -5,8 +5,14 @@ import tshirt from '../c_howTo/howToImages/Icon.png'
 import circle from '../c_howTo/howToImages/IconCircle.png'
 import lupa from '../c_howTo/howToImages/IconLupa.png'
 import torba from '../c_howTo/howToImages/IconTorba.png'
+import {Link, useNavigate} from "react-router-dom";
 
 const HowTo = () => {
+    const navigate = useNavigate();
+    const handleHowToBtnClick = () => {
+        navigate('/form');
+    }
+
     return (
         <>
             <div className='howTo_header'>
@@ -17,29 +23,31 @@ const HowTo = () => {
                 <article className='howToArticle_left'>
                     <img src={tshirt} alt='t-shirt'/>
                     <h3>Wybierz rzeczy</h3>
-                    <hr/>
+                    <span className='howToArticle_line'></span>
                     <p>ubrania, zabawki, sprzęt i inne</p>
                 </article>
                 <article className='howTo_left'>
                     <img src={torba} alt='torba'/>
                     <h3>Spakuj je</h3>
-                    <hr/>
+                    <span className='howToArticle_line'></span>
                     <p>skorzystaj z worków na śmieci</p>
                 </article>
                 <article className='howTo_center'>
                     <img src={lupa} alt='lupa'/>
                     <h3>Zdecyduj komu chcesz pomóc</h3>
-                    <hr/>
+                    <span className='howToArticle_line'></span>
                     <p>wybierz zaufane miejsce</p>
                 </article>
                 <article className='howTo_right'>
                     <img src={circle} alt='koło'/>
                     <h3>Zamów kuriera</h3>
-                    <hr/>
+                    <span className='howToArticle_line'></span>
                     <p>kurier przyjedzie w dogodnym terminie</p>
                 </article>
             </div>
-            <button type='button' className='howToBtn'>ODDAJ RZECZY</button>
+            <div className='howToBtnContainer'>
+                <button onClick={handleHowToBtnClick} type='button' className='howToBtn'>ODDAJ RZECZY</button>
+            </div>
 
         </>
     )
