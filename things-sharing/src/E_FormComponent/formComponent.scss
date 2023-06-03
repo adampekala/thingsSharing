@@ -1,18 +1,38 @@
 @use 'sass:color';
 @import "../Z_Colors/colors";
+@import "Z_OtherSCSSvariables/otherVariables";
 
 .formComponent_container {
+  max-width: $maxWidth;
+  margin: 0 auto;
   display: flex;
   justify-content: right;
   background-image: url("./images/Header-Form-Background.png");
   background-repeat: no-repeat;
   background-size: contain;
-  padding-right: 10rem;
+  padding-right: 0;
+}
+
+@media (max-width: 750px) {
+  .formComponent_container {
+    background-image: none;
+    justify-content: center;
+  }
 }
 
 .formComponent_rightArea {
   //padding-top: 2rem;
   width: 60rem;
+}
+
+.formComponent_navigationContainer {
+  padding-right: 4rem;
+}
+
+@media (max-width: 430px) {
+  .formComponent_navigationContainer {
+    padding-right: 0;
+  }
 }
 .formComponent_header {
 
@@ -31,7 +51,7 @@
 .formComponent_header-squares {
   display: flex;
   justify-content: center;
-  gap: 5rem;
+  gap: 2rem;
   padding-bottom: 13rem;
   p:first-child {
     font-size: 2.3rem;
@@ -39,7 +59,6 @@
   p:nth-child(2) {
     font-size: 1.7rem;
   }
-
 }
 
 .formComponent_header-square {
@@ -48,14 +67,33 @@
   &::before {
     content: "";
     position: absolute;
-    width: 12rem;
-    height: 12rem;
+    width: 10rem;
+    height: 10rem;
     border: 1px solid $fontColor;
-    transform: translate(-10%, 20%) rotate(45deg);
+    transform: translate(0%, 30%) rotate(45deg);
   }
 }
 
+@media (max-width: 370px) {
+  .formComponent_header-squares {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    padding-bottom: 5rem;
+  }
+  .formComponent_header-square {
+    &::before {
+      width: 12rem;
+      height: 12rem;
+      transform: translate(-10%, 15%) rotate(45deg);
+    }
+  }
+
+}
+
 .giveThingsMessage {
+  max-width: $maxWidth;
+  margin: 0 auto;
   background-color: $contrastColor;
   padding: 3rem 0 3rem 4rem;
   h1 {
@@ -72,10 +110,19 @@
   background-image: url("./images/Background-Form.png");
   background-size: cover;
   background-position: -5rem -1rem;
-  height: 45rem;
+  max-width: $maxWidth;
+  height: 55rem;
+  margin: 0 auto;
   padding: 1rem 4rem;
   position: relative;
 }
+
+@media (max-width: 750px) {
+  .giveThingsForm {
+    background-image: none;
+  }
+}
+
 
 .giveThingsForm_page {
   text-align: left;
@@ -122,6 +169,8 @@
 
 }
 
+
+
 //Second page
 
 .giveThingsForm_Fieldset-selectContainer {
@@ -132,7 +181,7 @@
 
 .giveThingsForm_Fieldset-selectButton {
   position: relative;
-  width: 15rem;
+  width: 18rem;
   border: 1px solid $fontColor;
   padding: 0.5rem 1rem;
   display: flex;
@@ -190,6 +239,9 @@
   &:hover {
     background-color: $contrastColor;
   }
+  &.clicked {
+    background-color: $contrastColor;
+  }
 }
 
 .giveThingsForm_organisationLabel {
@@ -210,6 +262,13 @@
 .giveThingsForm_adresAndDate-container {
   display: flex;
   gap: 2rem;
+}
+
+@media (max-width: 480px) {
+  .giveThingsForm_adresAndDate-container {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .giveThingsForm_adresAndDate_labelAndInput {
@@ -255,6 +314,58 @@
 
 }
 
+.resumeHeader {
+  text-align: left;
+  font-weight: bolder;
+}
+
+.resumeListTitle {
+  text-align: left;
+  font-size: 1.7rem;
+  font-weight: bolder;
+}
+
+.resumeList {
+  list-style-type: none;
+  padding: 0;
+  li {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0;
+    gap: 1rem;
+  }
+  .resumeListTShirtImage {
+    display: block;
+    width: 3rem;
+    height: 3rem;
+    background-image: url("./images/Icon.png");
+    background-size: contain;
+  }
+  .resumeListCircleImage {
+    display: block;
+    width: 3rem;
+    height: 3rem;
+    background-image: url("./images/circle.png");
+    background-size: contain;
+  }
+}
+
+.resumeTables {
+  display: flex;
+  gap: 10rem;
+  th {
+    font-size: 1.7rem;
+    text-align: left;
+    padding: 0.7rem 0;
+  }
+  td {
+    width: 5rem;
+    font-size: 1.7rem;
+    text-align: left;
+    padding: 0.7rem 4rem 0.7rem 0;
+  }
+}
+
 .giveThingsForm_thanks {
   padding-left: 5rem;
   width: 47rem;
@@ -268,4 +379,19 @@
   }
 }
 
+@media (max-width: 480px) {
+  .giveThingsForm {
+    height: unset;
+  }
+  .giveThingsForm_ButtonArea {
+    position: unset;
+  }
+  .resumeTables {
+    flex-direction: column;
+    gap: 3rem;
+  }
+  .giveThingsForm_adresAndDate-container {
+    align-items: unset;
+  }
+}
 
