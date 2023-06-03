@@ -3,7 +3,7 @@
 .navigationContainer {
   position: relative;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   padding: 1rem 0;
   h1 {
@@ -17,7 +17,8 @@
     width: 100vw;
     background-color: lighten($grey, 40%);
     box-shadow: 0 2px 3px lighten($grey, 20%);
-
+    margin: 0 auto;
+    justify-content: space-between;
     h1 {
       padding-left: 4rem;
       padding-top: 1rem;
