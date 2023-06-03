@@ -12,8 +12,10 @@ const FormComponent = () => {
         <>
             <main className='formComponent_container'>
                 <div className='formComponent_rightArea'>
-                    <LoginPanel />
-                    <Navigation/>
+                    <div className='formComponent_navigationContainer'>
+                        <LoginPanel />
+                        <Navigation/>
+                    </div>
                     <header className='formComponent_header'>
                         <h1 className='formComponent_header-main'>Oddaj rzeczy, których już nie chcesz<br/>POTRZEBUJĄCYM</h1>
                         <img src={Decoration} alt='dekoracja'/>
