@@ -19,7 +19,15 @@ const GiveThingsForm = () => {
     const [selectOn, setSelectOn] = useState(false);
     const [bags, setBags] = useState("— wybierz —");
     const [town, setTown] = useState("— wybierz —");
-    const [whoHelp, setWhoHelp] = useState([])
+    const [whoHelp, setWhoHelp] = useState([]);
+    const [helpTarget, setHelpTarget] = useState({
+        "dzieciom": false,
+        "samotnym matkom": false,
+        "bezdomnym": false,
+        "niepełnosprawnym": false,
+        "osobom starszym": false
+    })
+
     const [organisation, setOrganisation] = useState("");
     const [timeAndAdressForm, setTimeAndAdressForm] = useState(
         {
@@ -95,12 +103,18 @@ const GiveThingsForm = () => {
     }
     //TODO change color of buttons
     const handleChoseWhoHelp = (purpose) => {
-        whoHelp.every((el) => el !== purpose)
-            ?
-        setWhoHelp((prev)=> [...prev, purpose])
-            :
-        setWhoHelp(prev => prev.filter(el => el !== purpose))
-
+        if (whoHelp.every((el) => el !== purpose)) {
+            setWhoHelp((prev)=> [...prev, purpose]);
+            setHelpTarget(prevState => ({...prevState, [purpose]: true})
+            )
+        }
+        else {
+            setWhoHelp(prev => prev.filter(el => el !== purpose));
+            setHelpTarget(prevState => ({...prevState, [purpose]: false})
+            )
+        }
+        console.log(whoHelp);
+        console.log(helpTarget);
     }
 
     const handleChangeOrganisationInput = (event) => {
@@ -215,12 +229,12 @@ const GiveThingsForm = () => {
                         </span>
                     </div>
                     <p className='giveThingsForm_ButtonGroupWho_question'>Komu chcesz pomóc?</p>
-                    <button onClick={() => handleChoseWhoHelp("dzieciom")} className='giveThingsForm_ButtonGroupWho'>dzieciom</button>
-                    <button onClick={() => handleChoseWhoHelp("samotnym matkom")} className='giveThingsForm_ButtonGroupWho'>samotnym matkom</button>
-                    <button onClick={() => handleChoseWhoHelp("bezdomnym")} className='giveThingsForm_ButtonGroupWho'>bezdomnym</button>
+                    <button name="dzieciom" onClick={() => handleChoseWhoHelp("dzieciom")} className={helpTarget.dzieciom ? 'giveThingsForm_ButtonGroupWho clicked' : 'giveThingsForm_ButtonGroupWho'}>dzieciom</button>
+                    <button name="samotnym matkom" onClick={() => handleChoseWhoHelp("samotnym matkom")} className={helpTarget["samotnym matkom"] ? 'giveThingsForm_ButtonGroupWho clicked' : 'giveThingsForm_ButtonGroupWho'}>samotnym matkom</button>
+                    <button name="bezdomnym" onClick={() => handleChoseWhoHelp("bezdomnym")} className={helpTarget.bezdomnym ? 'giveThingsForm_ButtonGroupWho clicked' : 'giveThingsForm_ButtonGroupWho'}>bezdomnym</button>
                     <br/>
-                    <button onClick={() => handleChoseWhoHelp("niepełnosprawnym")} className='giveThingsForm_ButtonGroupWho'>niepełnosprawnym</button>
-                    <button onClick={() => handleChoseWhoHelp("osobom starszym")} className='giveThingsForm_ButtonGroupWho'>osobom starszym</button>
+                    <button name="niepełnosprawnym" onClick={() => handleChoseWhoHelp("niepełnosprawnym")} className={helpTarget.niepełnosprawnym ? 'giveThingsForm_ButtonGroupWho clicked' : 'giveThingsForm_ButtonGroupWho'}>niepełnosprawnym</button>
+                    <button name="osobom starszym" onClick={() => handleChoseWhoHelp("osobom starszym")} className={helpTarget["osobom starszym"] ? 'giveThingsForm_ButtonGroupWho clicked' : 'giveThingsForm_ButtonGroupWho'}>osobom starszym</button>
                     <label htmlFor="orgNameInput" >Wpisz nazwę konkretnej organizacji (opcjonalnie)
                     </label>
                     <input className='giveThingsForm_organisationInput' onChange={handleChangeOrganisationInput} id="orgNameInput" type="text" name="organisation" value={organisation}/>
@@ -281,10 +295,10 @@ const GiveThingsForm = () => {
         case 5:
             return (
                 <div className='giveThingsForm'>
-                    <h1>Podsumowanie Twojej darowizny</h1>
-                    <p>Oddajesz:</p>
-                    <ul>
-                        <li>
+                    <h1 className='resumeHeader'>Podsumowanie Twojej darowizny</h1>
+                    <p className='resumeListTitle'>Oddajesz:</p>
+                    <ul className='resumeList'>
+                        <li><span className='resumeListTShirtImage'></span>
 
                             { bags }{" "}
                             {bags === 1 && "worek"}
@@ -294,10 +308,10 @@ const GiveThingsForm = () => {
                             {bags === 5 && "worków"}
                             {bags === 6 && "worków"}
                             <strong>|</strong> {thingsArr.join(", ")}<strong>|</strong> {whoHelp.join(", ")}</li>
-                        <li>dla lokalizacji: {town}</li>
+                        <li><span className='resumeListCircleImage'></span>dla lokalizacji: {town}</li>
                     </ul>
-                    <div className='tables'>
-                        <table>
+                    <div className='resumeTables'>
+                        <table className='resumeTable1'>
                             <thead>
                             <tr><th colSpan={2}>Adres odbioru:</th></tr>
                             </thead>
@@ -308,7 +322,7 @@ const GiveThingsForm = () => {
                             <tr><td>Numer telefonu</td><td>{timeAndAdressForm.phone}</td></tr>
                             </tbody>
                         </table>
-                        <table>
+                        <table className='resumeTable2'>
                             <thead>
                             <tr><th colSpan={2}>Termin odbioru:</th></tr>
                             </thead>
