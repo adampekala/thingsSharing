@@ -3,7 +3,7 @@
 @use "../../Z_Colors/colors";
 @import "Z_OtherSCSSvariables/otherVariables";
 
-.formContainer {
+.contactFormContainer {
   max-width: $maxWidth;
   background-image: url("./images/Background Image.png");
   margin: 0 auto;
@@ -28,7 +28,7 @@
 }
 
 @media (max-width: 750px) {
-  .formContainer {
+  .contactFormContainer {
     background-image: none;
     background-color: white;
     padding-top: 2rem;
@@ -39,7 +39,7 @@
 
 }
 
-.form {
+.contactForm {
   padding-right: 10rem;
   align-self: flex-end;
   display: flex;
@@ -49,7 +49,7 @@
 }
 
 @media (max-width: 750px) {
-  .form {
+  .contactForm {
     align-self: center;
     align-content: center;
     padding: 0;
@@ -126,7 +126,7 @@
 }
 
 @media (max-width: 400px) {
-  .formContainer {
+  .contactFormContainer {
     padding: 3rem 1rem;
   }
   .formInputs {
@@ -145,7 +145,7 @@
     }
   }
 }
-.formBtnSubmit {
+.contactFormBtnSubmit {
   @include mixins.button(1rem 3rem, 2rem);
   align-self: flex-end;
 }

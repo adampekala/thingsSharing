@@ -100,10 +100,10 @@
     }
   }
   .paginationButtonClicked {
-    background-color: lighten($grey, 40%);
+    background-color: lighten($grey, 45%);
     border: 1px solid $fontColor;
     &:hover {
-      background-color: lighten($grey, 40%);
+      background-color: lighten($grey, 45%);
       border: 1px solid $fontColor;
     }
   }
