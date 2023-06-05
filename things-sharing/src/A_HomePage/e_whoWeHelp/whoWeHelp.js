@@ -7,10 +7,11 @@ const WhoWeHelp = () => {
     const organisationListInfo = useSelector(state => state.organisations);
     const [organisationNumber, setOrganisationNumber] = useState(useSelector(state => state.organisations.filter((el) => el.type ==='Fundacja').length));
     const [organisationType, setOrganisationType] = useState('Fundacja');
-    const [page, setPage] = useState(null);
-    const [pages, setPages] = useState(null);
+    const [page, setPage] = useState(1);
+    const [pages, setPages] = useState(1);
 
-    useEffect(() => setPages( Math.ceil(organisationNumber / 3 )), [organisationNumber])
+    // useEffect(() => setPages( Math.ceil(organisationNumber / 3 )), [organisationNumber]);
+    // useEffect(() => setPages( Math.ceil(organisationNumber / 3 )), [organisationListInfo]);
 
     const handleChangePage = (page) => () => {
         setPage(page);
@@ -19,7 +20,7 @@ const WhoWeHelp = () => {
     const createBtns = (btnsNumber) => {
         let btnArr = [];
         for (let i = 1; i <= btnsNumber; i++) {
-            btnArr.push(<button type='button' key={i} onClick={handleChangePage(i)}>{i}</button>)
+            btnArr.push(<button className={page === i ? 'paginationButtonClicked' : 'paginationButtonUnclicked'} type='button' key={i} onClick={handleChangePage(i)}>{i}</button>)
         }
         return btnArr;
     }
@@ -57,7 +58,14 @@ const WhoWeHelp = () => {
                     </table>
                 </div>
                 <div className='whoWeHelpTablePagination'>
-                    {createBtns(pages)}
+                    {createBtns(useSelector(
+                        state => {
+                            const num = state.organisations.filter((el) => el.type === organisationType).length;
+                            return Math.ceil(num / 3);
+                                }
+                            )
+                        )
+                    }
                 </div>
             </div>
     )

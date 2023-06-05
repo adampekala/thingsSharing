@@ -7,6 +7,7 @@ import AboutUs from "./d_aboutUs/aboutUs";
 import WhoWeHelp from "./e_whoWeHelp/whoWeHelp";
 
 const HomePage = () => {
+
     return (
         <>
             <HeroContainer/>
