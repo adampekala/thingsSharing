@@ -29,6 +29,9 @@
   button {
   @include button(1rem 3rem, 1.2rem);
     width: 15rem;
+    &.selectedOrganisation {
+      background-color: lighten($grey, 45%);
+    }
   }
 }
 
@@ -111,4 +114,5 @@
   .paginationButtonUnclicked {
 
   }
+
 }

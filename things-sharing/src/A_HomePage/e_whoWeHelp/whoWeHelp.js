@@ -36,9 +36,9 @@ const WhoWeHelp = () => {
                     <h1>Komu pomagamy?</h1>
                     <img src={decoration} alt='dekoracja'/>
                     <div className='whoWeHelpBtn'>
-                        <button type='button' onClick={handleOrganisationTypeClick("Fundacja")}>Fundacjom</button>
-                        <button type='button'onClick={ handleOrganisationTypeClick("Organizacja pozarządowa")} >Organizacjom pozarządowym</button>
-                        <button type='button' onClick={handleOrganisationTypeClick("Lokalna zbiórka")}>Lokalnym zbiórkom</button>
+                        <button type='button' className={organisationType === "Fundacja" && "selectedOrganisation"} onClick={handleOrganisationTypeClick("Fundacja")}>Fundacjom</button>
+                        <button type='button' className={organisationType === "Organizacja pozarządowa" && "selectedOrganisation"} onClick={ handleOrganisationTypeClick("Organizacja pozarządowa")} >Organizacjom pozarządowym</button>
+                        <button type='button' className={organisationType === "Lokalna zbiórka" && "selectedOrganisation"} onClick={handleOrganisationTypeClick("Lokalna zbiórka")}>Lokalnym zbiórkom</button>
                     </div>
                     <p className='whoWeHelpText'>W naszej bazie znajdziesz listę zweryfikowanych Fundacji, z którymi współpracujemy. Możesz sprawdzić czym się zajmują, komu pomagają i czego potrzebują.</p>
                     <table className='whoWeHelpTable'>
