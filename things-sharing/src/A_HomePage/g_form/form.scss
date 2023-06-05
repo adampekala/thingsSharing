@@ -150,3 +150,10 @@
   align-self: flex-end;
 }
 
+.contactFormBtnNewMessage {
+  @include mixins.button(1rem 3rem, 2rem);
+  align-self: flex-end;
+  margin: 16.5rem auto;
+
+}
+
