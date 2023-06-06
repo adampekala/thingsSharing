@@ -1,7 +1,9 @@
 @use "sass:color";
 @import "./src/Z_Colors/colors";
 
-
+.logInFormNavigation {
+  padding-right: 4rem;
+}
 .logInForm {
   display: flex;
   flex-direction: column;
@@ -25,6 +27,7 @@
   background-color: lighten($grey, 40%);
 }
 
+
 .logInForm_buttons {
   width: 50rem;
   display: flex;
@@ -38,7 +41,7 @@
     background-color: transparent;
     font-family: "Open Sans", sans-serif;
     &:hover {
-      background-color: lighten($grey, 50%)
+      background-color: lighten($grey, 40%)
     }
   }
   a {
@@ -49,6 +52,80 @@
     padding: 1rem;
     &:hover {
       text-decoration: underline;
+    }
+  }
+}
+
+@media (max-width: 1400px) {
+  .logInForm_form {
+    width: 400px;
+    padding: 30px 40px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    gap: 2rem;
+    background-color: lighten($grey, 40%);
+    label {
+      font-size: 16px;
+    }
+    input {
+      font-size: 16px;
+    }
+  }
+
+  .logInForm_buttons {
+    width: 50rem;
+    display: flex;
+    justify-content: space-between;
+    padding: 4rem 0;
+
+    button {
+      font-size: 16px;
+      padding: 14px;
+    }
+    a {
+      font-size: 16px;
+    }
+  }
+}
+
+
+@media (max-width: 400px) {
+  .logInForm_form {
+    width: 100vw;
+    padding: 30px 0;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    gap: 2rem;
+    background-color: lighten($grey, 40%);
+    label {
+      font-size: 16px;
+      width: unset;
+      padding-left: 10px;
+    }
+    input {
+      font-size: 16px;
+      width: unset;
+      padding-left: 10px;
+    }
+  }
+
+  .logInForm_buttons {
+    width: unset;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    padding: 4rem 0;
+
+    button {
+      font-size: 16px;
+      padding: 14px;
+      width: 95vw;
+    }
+    a {
+      font-size: 14px;
+      margin-top: 10px;
     }
   }
 }
