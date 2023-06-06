@@ -95,6 +95,24 @@
       padding: 0.5rem 0;
     }
   }
+
+  .hashLink {
+    display: block;
+    text-decoration: none;
+    font-size: 1.3rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid transparent;
+    &:hover {
+      border: 1px solid $fontColor;
+    }
+    &:visited {
+      color: $fontColor;
+    }
+    .active {
+      padding: 0.5rem 0;
+    }
+
+  }
 }
 
 @media (max-width: 430px) {

@@ -81,6 +81,22 @@
 .navigation li .active {
   padding: 0.5rem 0;
 }
+.navigation .hashLink {
+  display: block;
+  text-decoration: none;
+  font-size: 1.3rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid transparent;
+}
+.navigation .hashLink:hover {
+  border: 1px solid #3C3C3C;
+}
+.navigation .hashLink:visited {
+  color: #3C3C3C;
+}
+.navigation .hashLink .active {
+  padding: 0.5rem 0;
+}
 
 @media (max-width: 430px) {
   .navigation {
