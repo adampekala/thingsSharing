@@ -67,7 +67,7 @@ const GiveThingsForm = () => {
     const checkboxSelected5 = (event) => {
         setOther((prev) => !prev);
     }
-//TODO redux
+
     const handleCreatingThingsArr = () => {
 
         let arr = [];
@@ -85,6 +85,7 @@ const GiveThingsForm = () => {
     }
 
     const handleDalejBtnClick = (event) => {
+        //TODO walidacja formularza
         page === 1 && handleCreatingThingsArr();
         pageIncrease()
     }
@@ -101,7 +102,7 @@ const GiveThingsForm = () => {
     const handleSelectTown = (town) => {
         setTown(town);
     }
-    //TODO change color of buttons
+
     const handleChoseWhoHelp = (purpose) => {
         if (whoHelp.every((el) => el !== purpose)) {
             setWhoHelp((prev)=> [...prev, purpose]);

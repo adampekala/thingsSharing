@@ -17,10 +17,11 @@ const Form = () => {
         event.preventDefault();
     }
 
-    //TODO message to firebase
+
     const messageRef = collection(db, "messages");
 
     const handleConfirmationClick = async (event) => {
+        //TODO walidacja maila
         event.preventDefault();
         try {
             await addDoc(messageRef, {
