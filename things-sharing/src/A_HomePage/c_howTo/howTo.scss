@@ -73,6 +73,9 @@
   text-align: center;
   text-decoration: none;
   margin: 0 auto;
+  &:link {
+    color: $fontColor;
+  }
   &:active {
     color: $fontColor;
   }

@@ -102,6 +102,9 @@
     font-size: 1.3rem;
     padding: 0.5rem 1rem;
     border: 1px solid transparent;
+    &:link {
+      color: $fontColor;
+    }
     &:hover {
       border: 1px solid $fontColor;
     }

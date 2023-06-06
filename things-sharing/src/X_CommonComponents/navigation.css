@@ -88,6 +88,9 @@
   padding: 0.5rem 1rem;
   border: 1px solid transparent;
 }
+.navigation .hashLink:link {
+  color: #3C3C3C;
+}
 .navigation .hashLink:hover {
   border: 1px solid #3C3C3C;
 }

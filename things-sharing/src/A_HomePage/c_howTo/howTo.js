@@ -55,7 +55,6 @@ const HowTo = () => {
             </div>
             <div className='howToBtnContainer'>
                 {howToBtnLink}
-                {/*<HashLink className='howToBtnLink' to='/form#giveThingsMessage'>ODDAJ RZECZY</HashLink>*/}
             </div>
 
         </>
