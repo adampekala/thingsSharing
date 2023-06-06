@@ -7,6 +7,7 @@ import {signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateC
 import {showLoggedUser} from "../actions";
 import {useDispatch} from "react-redux";
 import {Link, useNavigate} from "react-router-dom";
+import NavigationLogSign from "../X_CommonComponents/navigationLogSign";
 
 
 const LogInComponent = () => {
@@ -27,13 +28,6 @@ const LogInComponent = () => {
         );
         return () => unsubscribe();
     }, []);
-
-    // onAuthStateChanged(
-    //         auth,
-    //         (user) => {
-    //             user? setUser(user) : setUser({});
-    //         }
-    //     );
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -67,14 +61,10 @@ const LogInComponent = () => {
 
     return (
         <>
-            <LoginPanel />
-            <ul className='navigation'>
-                <li>Start</li>
-                <li>O co chodzi?</li>
-                <li>O nas</li>
-                <li>Fundacja i organizacje</li>
-                <li>Kontakt</li>
-            </ul>
+            <div className='logInFormNavigation'>
+                <LoginPanel />
+                <NavigationLogSign />
+            </div>
             <form className="logInForm" onSubmit={handleSubmit}>
                 <h1 className='logInForm_header'>Zaloguj się</h1>
                 <img className='logInForm_decoration' src={decoration} alt='dekoracja'/>
