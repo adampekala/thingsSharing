@@ -6,7 +6,8 @@ import { auth } from "../firebase/firebaseConfig";
 import { createUserWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth'
 import {ADD_USER} from "../actions/actionsNames";
 import {Link} from "react-router-dom";
-import Navigation from "../X_CommonComponents/navigation";
+import NavigationHome from "../X_CommonComponents/navigationHome";
+import NavigationLogSign from "../X_CommonComponents/navigationLogSign";
 
 
 const SignUpComponent = () => {
@@ -14,24 +15,6 @@ const SignUpComponent = () => {
     const [password, setPassword] = useState('')
     const [passwordRepeat, setPasswordRepeat] = useState('')
     const [user, setUser] = useState({})
-
-
-    // useEffect(() => {
-    //     const unsubscribe = onAuthStateChanged(
-    //         auth,
-    //         (user) => {
-    //             setUser(user);
-    //         }
-    //     );
-    //     return () => unsubscribe();
-    // }, []);
-
-    // onAuthStateChanged(
-    //         auth,
-    //         (user) => {
-    //             user? setUser(user) : setUser({});
-    //         }
-    //     );
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -54,8 +37,10 @@ const SignUpComponent = () => {
 
     return (
         <>
-            <LoginPanel />
-            <Navigation/>
+            <div className='signUpFormNavigation'>
+                <LoginPanel />
+                <NavigationLogSign />
+            </div>
             <form className="signUpForm" onSubmit={handleSubmit}>
                 <h1 className='signUpForm_header'>Załóż konto</h1>
                 <img className='signUpForm_decoration' src={decoration} alt='dekoracja'/>
