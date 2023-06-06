@@ -1,9 +1,8 @@
 import React, {useState} from "react";
-// import {Link} from "react-router-dom";
 import { Link } from "react-scroll";
 import "./navigation.scss"
 
-const Navigation = () => {
+const NavigationHome = () => {
     const [hidden , setHidden] = useState(true)
 
     const handleShowMenuClick = () => {
@@ -11,7 +10,7 @@ const Navigation = () => {
     }
 
     return (
-        <div className="navigationContainer">
+        <div id='navigationContainer' className="navigationContainer">
             <h1 className='navigationTitle'>THINGS-sharing</h1>
             <div onClick={handleShowMenuClick} className={hidden ? 'navigationBurger' : 'navigationBurger cross'}>
                 <div className='navigationBurger_line'></div>
@@ -37,5 +36,5 @@ const Navigation = () => {
     )
 }
 
-export default Navigation;
+export default NavigationHome;
 

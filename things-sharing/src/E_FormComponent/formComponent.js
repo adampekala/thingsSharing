@@ -1,11 +1,10 @@
 import React from "react";
 import LoginPanel from "../X_CommonComponents/loginPanel";
-import Navigation from "../X_CommonComponents/navigation";
 import Decoration from "../Z_Images/Decoration.png";
-import Footer from "../A_HomePage/h_footer/footer";
 import Form from "../A_HomePage/g_form/form";
 import './formComponent.scss'
 import GiveThingsForm from "./giveThingsForm";
+import NavigationLogSign from "../X_CommonComponents/navigationLogSign";
 
 const FormComponent = () => {
     return (
@@ -14,7 +13,7 @@ const FormComponent = () => {
                 <div className='formComponent_rightArea'>
                     <div className='formComponent_navigationContainer'>
                         <LoginPanel />
-                        <Navigation/>
+                        <NavigationLogSign/>
                     </div>
                     <header className='formComponent_header'>
                         <h1 className='formComponent_header-main'>Oddaj rzeczy, których już nie chcesz<br/>POTRZEBUJĄCYM</h1>
@@ -41,7 +40,7 @@ const FormComponent = () => {
                     </header>
                 </div>
             </main>
-            <div className="giveThingsMessage">
+            <div id='giveThingsMessage' className="giveThingsMessage">
                 <h1>Ważne!</h1>
                 <p>Uzupełnij szczegóły dotyczące Twoich rzeczy. Dzięki temu będziemy wiedzieć komu najlepiej je przekazać.</p>
             </div>
