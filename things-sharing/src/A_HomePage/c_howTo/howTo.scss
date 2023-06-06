@@ -66,6 +66,22 @@
 
 }
 
+.howToBtnLink {
+  @include button();
+  width: 35rem;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  margin: 0 auto;
+  &:active {
+    color: $fontColor;
+  }
+  &:visited {
+    color: $fontColor;
+  }
+
+}
+
 @media (max-width: 800px) {
   .howTo {
     flex-wrap: wrap;

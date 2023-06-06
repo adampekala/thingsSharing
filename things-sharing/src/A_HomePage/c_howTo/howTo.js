@@ -5,13 +5,15 @@ import tshirt from '../c_howTo/howToImages/Icon.png'
 import circle from '../c_howTo/howToImages/IconCircle.png'
 import lupa from '../c_howTo/howToImages/IconLupa.png'
 import torba from '../c_howTo/howToImages/IconTorba.png'
-import {Link, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
+import {HashLink} from "react-router-hash-link";
 
 const HowTo = () => {
     const navigate = useNavigate();
     const handleHowToBtnClick = () => {
         navigate('/form');
     }
+    //TODO dostęp do formularza tylko zalogowanego użytkownika
 
     return (
         <>
@@ -46,7 +48,7 @@ const HowTo = () => {
                 </article>
             </div>
             <div className='howToBtnContainer'>
-                <button onClick={handleHowToBtnClick} type='button' className='howToBtn'>ODDAJ RZECZY</button>
+                <HashLink className='howToBtnLink' to='/form#giveThingsMessage'>ODDAJ RZECZY</HashLink>
             </div>
 
         </>
