@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import './howTo.scss';
 import decoration from '../../Z_Images/Decoration.png';
 import tshirt from '../c_howTo/howToImages/Icon.png'
@@ -7,13 +7,19 @@ import lupa from '../c_howTo/howToImages/IconLupa.png'
 import torba from '../c_howTo/howToImages/IconTorba.png'
 import {useNavigate} from "react-router-dom";
 import {HashLink} from "react-router-hash-link";
+import {useSelector} from "react-redux";
 
 const HowTo = () => {
     const navigate = useNavigate();
-    const handleHowToBtnClick = () => {
-        navigate('/form');
-    }
-    //TODO dostęp do formularza tylko zalogowanego użytkownika
+    const [userIsLogged, setuserIsLogged] = useState(useSelector((state) => state.users.user));
+    let howToBtnLink;
+
+    if(userIsLogged) {
+            howToBtnLink = <HashLink className='howToBtnLink' to='/form#giveThingsMessage'>ODDAJ RZECZY</HashLink>
+        }
+        else if (userIsLogged !== true) {
+            howToBtnLink = <HashLink className='howToBtnLink' to='/logIn#navigationComponent'>ODDAJ RZECZY</HashLink>;
+        }
 
     return (
         <>
@@ -48,7 +54,8 @@ const HowTo = () => {
                 </article>
             </div>
             <div className='howToBtnContainer'>
-                <HashLink className='howToBtnLink' to='/form#giveThingsMessage'>ODDAJ RZECZY</HashLink>
+                {howToBtnLink}
+                {/*<HashLink className='howToBtnLink' to='/form#giveThingsMessage'>ODDAJ RZECZY</HashLink>*/}
             </div>
 
         </>

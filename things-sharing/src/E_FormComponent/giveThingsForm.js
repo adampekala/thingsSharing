@@ -40,6 +40,10 @@ const GiveThingsForm = () => {
             additionalInformation: ""}
     )
 
+    const [areThingsChoosed, setAreThingsChoosed] = useState(true);
+    const [areBagsChoosed, setAreBagsChoosed] = useState(true);
+    const [areTownAndPurpouseChoosed, setAreTownAndPurpouseChoosed] = useState(true);
+    const [isTimeAndAdressFormCorrect, setIsTimeAndAdressFormCorrect] = useState(true);
 
     const pageIncrease = () => {
         setPage((prev) => prev + 1)
@@ -85,10 +89,36 @@ const GiveThingsForm = () => {
     }
 
     const handleDalejBtnClick = (event) => {
-        //TODO walidacja formularza
         page === 1 && handleCreatingThingsArr();
-        pageIncrease()
+        if (!goodThings && !badThings && !toys && !books && !other) {
+            setAreThingsChoosed(false);
+        }
+        else {
+            setAreThingsChoosed(true);
+            pageIncrease()
+        }
     }
+
+    const handleDalej2PageBtnClick = (event) => {
+        if (bags === "— wybierz —") {
+            setAreBagsChoosed(false);
+        }
+        else {
+            setAreBagsChoosed(true);
+            pageIncrease()
+        }
+    }
+
+    const handleDalej3PageBtnClick = (event) => {
+        if (town === "— wybierz —" || whoHelp.length === 0) {
+            setAreTownAndPurpouseChoosed(false);
+        }
+        else {
+            setAreTownAndPurpouseChoosed(true);
+            pageIncrease()
+        }
+    }
+
 
     const handleSelect = () => {
         setSelectOn(prev =>  !prev )
@@ -130,14 +160,21 @@ const GiveThingsForm = () => {
     const dispatch = useDispatch();
 
     const handleLastDalejClick = () => {
-        dispatch(sentFormToRedux(thingsArr,
-            bags,
-            town,
-            whoHelp,
-            organisation,
-            timeAndAdressForm));
-        console.log('potwierdzenie');
-        setPage(5);
+        if (timeAndAdressForm.street && timeAndAdressForm.city && timeAndAdressForm.postCode && timeAndAdressForm.phone && timeAndAdressForm.date && timeAndAdressForm.hour) {
+            setIsTimeAndAdressFormCorrect(true);
+            dispatch(sentFormToRedux(thingsArr,
+                bags,
+                town,
+                whoHelp,
+                organisation,
+                timeAndAdressForm));
+            console.log('potwierdzenie');
+            setPage(5);
+        }
+        else {
+            setIsTimeAndAdressFormCorrect(false);
+        }
+
     }
 
     const reduxCollection = useSelector((prev) => prev.collection);
@@ -169,14 +206,11 @@ const GiveThingsForm = () => {
 
     }
 
-
-
-
     switch (page) {
         case 2:
             return (
                 <form onSubmit={handleOnSubmit} className='giveThingsForm'>
-                    <p className='giveThingsForm_page'>Krok {page}/4</p>
+                    <p className='giveThingsForm_page'>Krok {page}/4 {!areBagsChoosed ? <span>Nie wybrano ilości worków!</span> : undefined}</p>
                     <h1 className='giveThingsForm_Fieldset-Legend'>Podaj liczbę 60l worków, w które spakowałeś/aś rzeczy:</h1>
                     <div className='giveThingsForm_Fieldset-selectContainer'>
                         <span>Liczba 60l worków:</span>
@@ -200,7 +234,7 @@ const GiveThingsForm = () => {
                     </div>
                     <div className='giveThingsForm_ButtonArea'>
                         <button type='button' onClick={pageDecrease}>Wstecz</button>
-                        <button type='button' onClick={pageIncrease}>Dalej</button>
+                        <button type='button' onClick={handleDalej2PageBtnClick}>Dalej</button>
                     </div>
 
                 </form>
@@ -208,7 +242,7 @@ const GiveThingsForm = () => {
         case 3:
             return (
                 <form onSubmit={handleOnSubmit} className='giveThingsForm'>
-                    <p className='giveThingsForm_page'>Krok {page}/4</p>
+                    <p className='giveThingsForm_page'>Krok {page}/4{!areTownAndPurpouseChoosed ? <span>Nie wybrano miasta lub celu zbiórki!</span> : undefined}</p>
                     <h1 className='giveThingsForm_Fieldset-Legend'>Lokalizacja:</h1>
                     <div className='giveThingsForm_Fieldset-selectContainer'>
                         <span onClick={handleSelect} className='giveThingsForm_Fieldset-selectButton'>
@@ -241,7 +275,7 @@ const GiveThingsForm = () => {
                     <input className='giveThingsForm_organisationInput' onChange={handleChangeOrganisationInput} id="orgNameInput" type="text" name="organisation" value={organisation}/>
                     <div className='giveThingsForm_ButtonArea'>
                         <button type='button' onClick={pageDecrease}>Wstecz</button>
-                        <button type='button' onClick={pageIncrease}>Dalej</button>
+                        <button type='button' onClick={handleDalej3PageBtnClick}>Dalej</button>
                     </div>
 
                 </form>
@@ -249,7 +283,7 @@ const GiveThingsForm = () => {
         case 4:
             return (
                 <form onSubmit={handleOnSubmit} className='giveThingsForm'>
-                    <p className='giveThingsForm_page'>Krok {page}/4</p>
+                    <p className='giveThingsForm_page'>Krok {page}/4{!isTimeAndAdressFormCorrect ? <span>Nie wypełniono prawidłowo wszystkich pól</span> : undefined}</p>
                     <h1 className='giveThingsForm_Fieldset-Legend'>Podaj adres oraz termin odbioru rzecz przez kuriera</h1>
                     <div className='giveThingsForm_adresAndDate-container'>
                         <div className='giveThingsForm_adresAndDate-Adres'>
@@ -342,24 +376,22 @@ const GiveThingsForm = () => {
 
 
             );
-
         case 6:
             return (
             <div className='giveThingsForm'>
                 <div className='giveThingsForm_container'>
                     <div className='giveThingsForm_thanks'>
-                        <p>Dziękujemy za przesłanie formularza Na maila prześlemy wszelkie informacje o odbiorze.</p>
+                        <p>Dziękujemy za przesłanie formularza. Wszelkie informacje o odbiorze prześlemy na maila.</p>
                         <img src={decoration}/>
                     </div>
 
                 </div>
             </div>
                 )
-
         default:
             return (
                 <form onSubmit={handleOnSubmit} className='giveThingsForm'>
-                    <p className='giveThingsForm_page'>Krok {page}/4</p>
+                    <p className='giveThingsForm_page'>Krok {page}/4{!areThingsChoosed ? <span>Nie wybrano rzeczy do oddania!</span> : undefined}</p>
                     <h1 className='giveThingsForm_Fieldset-Legend'>Zaznacz co chcesz oddać:</h1>
                     <fieldset className='giveThingsForm_Fieldset'>
                         <label className='giveThingsForm_Fieldset-Label'>

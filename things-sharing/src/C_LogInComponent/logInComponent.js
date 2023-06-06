@@ -13,10 +13,10 @@ import NavigationLogSign from "../X_CommonComponents/navigationLogSign";
 const LogInComponent = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [passwordRepeat, setPasswordRepeat] = useState('')
     const [user, setUser] = useState({})
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const [wrongLoginOrPassword, setWrongLoginOrPassword ] = useState(false);
 
 
     useEffect(() => {
@@ -43,7 +43,8 @@ const LogInComponent = () => {
             await dispatch(showLoggedUser(user));
             navigate('/');
         } catch (error) {
-            console.log(error.message);
+            await setWrongLoginOrPassword(true);
+            console.log(error);
         }
 
     }
@@ -52,11 +53,14 @@ const LogInComponent = () => {
         try {
             const user = await signOut(auth);
             await dispatch(showLoggedUser(""));
-            // await setLoggedUser({})
 
         } catch (error) {
             console.log(error)
         }
+    }
+
+    const handleFocusIn = () => {
+        setWrongLoginOrPassword(false)
     }
 
     return (
@@ -70,18 +74,17 @@ const LogInComponent = () => {
                 <img className='logInForm_decoration' src={decoration} alt='dekoracja'/>
                 <div className='logInForm_form'>
                     <label htmlFor='email'>Email</label>
-                    <input id='email' type='email' value={email} onChange={(e) => setEmail(e.target.value)}/>
+                    <input id='email' type='email' value={email} onChange={(e) => setEmail(e.target.value)} onFocus={handleFocusIn}/>
                     <label htmlFor='password'>Hasło</label>
                     <input id='password' type='password' value={password}
-                           onChange={(e) => setPassword(e.target.value)}/>
-                    <label htmlFor='passwordRepeat'>Powtórz hasło</label>
-                    <input id='passwordRepeat' type='password' value={passwordRepeat}
-                           onChange={(e) => setPasswordRepeat(e.target.value)}/>
+                           onChange={(e) => setPassword(e.target.value)} onFocus={handleFocusIn}/>
+
+                    {wrongLoginOrPassword ? <small>błędny e-mail lub hasło</small> : undefined}
 
                 </div>
                 <div className='logInForm_buttons' >
                     <Link className='logInFormButtons_registerLink' to='/registration'>Załóż konto</Link>
-                    <button type='submit' onClick={(event) => { event.preventDefault(); return password === passwordRepeat? logIn(): console.log('error')}}>Zaloguj się</button>
+                    <button type='submit' onClick={(event) => { event.preventDefault(); return logIn()}}>Zaloguj się</button>
 
                 </div>
             </form>

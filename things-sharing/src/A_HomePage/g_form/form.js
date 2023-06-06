@@ -9,6 +9,9 @@ import {db} from "../../firebase/firebaseConfig";
 const Form = () => {
     const [contactForm, setContactForm] = useState({name: "", email: "", message: ""});
     const [messageSent, setMessageSent] = useState(false);
+    const [wrongEmail, setWrongEmail] = useState(false);
+    const [wrongName, setWrongName] = useState(false);
+
     const handleOnChangeForm = (event) => {
         const {name, value} = event.target;
         setContactForm(prevState => ({...prevState, [name]: value}))
@@ -17,27 +20,55 @@ const Form = () => {
         event.preventDefault();
     }
 
+    const regEmail = /^[a-z\d]+[\w\d.-]*@(?:[a-z\d]+[a-z\d-]+\.){1,5}[a-z]{2,6}$/i;
+    const regName = /[a-z]/i;
 
     const messageRef = collection(db, "messages");
 
     const handleConfirmationClick = async (event) => {
-        //TODO walidacja maila
         event.preventDefault();
-        try {
-            await addDoc(messageRef, {
-                date: new Date(),
-                name: contactForm.name,
-                email: contactForm.email,
-                message: contactForm.message,
-            })
-            console.log('potwierdzenie');
-            setMessageSent(true)
 
-        } catch (error) {
-            console.log(error);
+        if (regEmail.test(contactForm.email) !== true && regName.test(contactForm.name) !== true) {
+            setWrongEmail(true);
+            setWrongName(true);
+            console.log('błędny mail i imię')
         }
 
+        else if (regEmail.test(contactForm.email) === true && regName.test(contactForm.name) !== true) {
+            setWrongName(true);
+            console.log('błędne imię')
+        }
+
+        if (regEmail.test(contactForm.email) !== true && regName.test(contactForm.name) === true) {
+            setWrongEmail(true);
+            console.log('błędny mail')
+        }
+
+        else if (regEmail.test(contactForm.email) && regName.test(contactForm.name)) {
+            try {
+                await addDoc(messageRef, {
+                    date: new Date(),
+                    name: contactForm.name,
+                    email: contactForm.email,
+                    message: contactForm.message,
+                })
+                console.log('potwierdzenie');
+                setMessageSent(true)
+
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+
     }
+    const handleChangeWrongEmail = () => {
+        setWrongEmail(false)
+    }
+    const handleChangeWrongName = () => {
+        setWrongName(false)
+    }
+
 
     const  handleNewMessageClick = () => {
         setMessageSent(false);
@@ -55,13 +86,15 @@ const Form = () => {
                             <div>
                                 <label id='contactName'>Wpisz swoje imię</label>
                                 <br/>
-                                <input type='text' htmlFor='contactName' name='name' value={contactForm.name} onChange={handleOnChangeForm}/>
+                                <input onFocus={handleChangeWrongName} type='text' htmlFor='contactName' name='name' value={contactForm.name} onChange={handleOnChangeForm}/>
+                                {wrongName ? <small>błędne imię</small> : undefined}
                             </div>
 
                             <div>
                                 <label id='contactEmail'>Wpisz swój email</label>
                                 <br/>
-                                <input type='email' htmlFor='contactEmail' name='email' value={contactForm.email} onChange={handleOnChangeForm}/>
+                                <input onFocus={handleChangeWrongEmail} type='email' htmlFor='contactEmail' name='email' value={contactForm.email} onChange={handleOnChangeForm}/>
+                                {wrongEmail ? <small>błędny email</small> : undefined}
                             </div>
                         </div>
                         <div>

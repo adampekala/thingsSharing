@@ -27,7 +27,8 @@ const WhoWeHelp = () => {
 
     const handleOrganisationTypeClick = (organisationType) => () => {
         setOrganisationType(organisationType);
-        setOrganisationNumber(organisationListInfo.filter((el) => el.type === organisationType).length)
+        setOrganisationNumber(organisationListInfo.filter((el) => el.type === organisationType).length);
+        setPage(1);
     }
 
     return (

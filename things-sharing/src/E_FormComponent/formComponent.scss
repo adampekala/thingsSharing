@@ -129,6 +129,15 @@
   padding-top: 1rem;
   padding-bottom: 1rem;
   margin: 0;
+  position: relative;
+
+  span {
+    font-size: 10px;
+    color: red;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+  }
 
 }
 

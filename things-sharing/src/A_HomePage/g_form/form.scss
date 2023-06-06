@@ -109,6 +109,13 @@
   justify-content: space-between;
   div {
     width: 48%;
+    position: relative;
+    small {
+      display: block;
+      color: red;
+      position: absolute;
+      bottom: -1.5rem;
+    }
   }
 }
 

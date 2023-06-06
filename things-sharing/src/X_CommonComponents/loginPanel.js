@@ -13,16 +13,13 @@ const LoginPanel = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-
     const logOut = async () => {
         try {
             await setLoggedUser('');
             const user = await signOut(auth);
             await dispatch(showLoggedUser(""));
             console.log(user);
-
-            // await setLoggedUser({})
-
+            navigate("/");
         } catch (error) {
             console.log(error)
         }
@@ -35,32 +32,15 @@ const LoginPanel = () => {
     const handleRegistrationLink = () => {
         navigate('/registration');
     }
-    // onAuthStateChanged(
-    //         auth,
-    //         (user) => {
-    //             user? setLoggedUser(user) : setLoggedUser({});
-    //         }
-    //     );
-
-    // useEffect(() => {
-    //     onAuthStateChanged(
-    //         auth,
-    //         (user) => {
-    //             setLoggedUser(user);
-    //         }
-    //     );
-    // } , [])
-    //
-    //
-    // useEffect(()=> {
-    //     // setLoggedUser(useSelector(state => state.users.id))
-    // }, [])
+     const handleOddajRzeczyLink = () => {
+        navigate('/form');
+    }
 
     return (
         loggedUser ?
             <div className='loginPanel' id="loginPanel">
                 <p className='loginPanel_userInformation'>Cześć {loggedUser.user.email}</p>
-                <button type='button' className='loginPanel_signInBtn'>Oddaj rzeczy</button>
+                <button type='button' className='loginPanel_signInBtn' onClick={handleOddajRzeczyLink}>Oddaj rzeczy</button>
                 <button type='button' className='loginPanel_signOutBtn' onClick={logOut}>Wyloguj konto</button>
             </div>
             :
