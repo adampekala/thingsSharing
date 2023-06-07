@@ -122,13 +122,20 @@
     padding: 3rem 7rem;
 
   }
+  .howTo_header {
+    padding: 1rem 2rem 2rem;
+    img {
+      width: 60%;
+    }
+  }
 }
 @media (max-width: 300px) {
   .howTo {
     flex-direction: column;
     align-items: center;
     padding: 0;
-
-
+  }
+  .howToBtnLink {
+    width: unset;
   }
 }

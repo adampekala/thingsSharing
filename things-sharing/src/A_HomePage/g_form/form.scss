@@ -154,6 +154,7 @@
 }
 .contactFormBtnSubmit {
   @include mixins.button(1rem 3rem, 2rem);
+  color: black;
   align-self: flex-end;
 }
 

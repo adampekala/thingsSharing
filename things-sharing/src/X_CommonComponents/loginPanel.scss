@@ -6,13 +6,14 @@
   //right: 5rem;
   //top: 1rem;
   //margin-top: 2rem;
-  padding-top: 2rem;
+  padding: 2rem 0 1rem;
   display: flex;
   justify-content: flex-end;
   button {
     margin: 0 0.5rem;
     padding: 0.5rem;
     border: 1px solid transparent;
+    font-size: 2rem;
     &:hover {
       border: 1px solid $contrastColor;
       background-color: transparent;

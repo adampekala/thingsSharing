@@ -97,6 +97,7 @@
   button {
     @include button(1rem 1rem, 1.2rem);
     border: 1px solid transparent;
+    font-size: 1.7rem;
     &:hover {
       border: 1px solid black;
       background-color: unset;
