@@ -74,6 +74,8 @@
   font-size: 1.3rem;
   padding: 0.5rem 1rem;
   border: 1px solid transparent;
+  transition: 500ms all;
+  cursor: pointer;
 }
 .navigation li:hover {
   border: 1px solid #3C3C3C;
