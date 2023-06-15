@@ -73,6 +73,7 @@
   text-align: center;
   text-decoration: none;
   margin: 0 auto;
+  transition: 500ms all;
   &:link {
     color: $fontColor;
   }
