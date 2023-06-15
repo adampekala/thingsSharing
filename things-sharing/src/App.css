@@ -398,6 +398,8 @@ button {
   border: 1px solid #3C3C3C;
   background-color: transparent;
   padding: 1rem 3rem;
+  transition: 500ms all;
+  cursor: pointer;
 }
 button:hover {
   background-color: #d9d9d9;
