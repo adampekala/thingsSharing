@@ -51,6 +51,8 @@ button {
   border: 1px solid $fontColor;
   background-color: transparent;
   padding: 1rem 3rem;
+  transition: 500ms all;
+  cursor: pointer;
   &:hover {
     background-color: lighten($grey, 40%);
   }
