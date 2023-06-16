@@ -25,7 +25,7 @@ const HeroRightArea = () => {
                 <img src={Decoration} alt='dekoracja'/>
                 <div className='headerButtons'>
                     <button type='button' onClick={handleOddajRzeczy}>ODDAJ <br/> RZECZY</button>
-                    <button type='button'>ZORGANIZUJ <br/> ZBIÓRKĘ</button>
+                    <button className='headerButton_organise' type='button'>ZORGANIZUJ <br/> ZBIÓRKĘ<span className='headerButton_organise-tooltip'>Guzik nieaktywny! Strona demonstracyjna</span></button>
                 </div>
             </header>
         </div>
