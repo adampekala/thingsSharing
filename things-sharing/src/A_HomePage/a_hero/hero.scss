@@ -79,8 +79,37 @@
       background-color: lighten(grey, 40%);
     }
   }
-
 }
+.headerButton_organise-tooltip {
+  display: none;
+  width: 25rem;
+  padding: 1rem 2rem;
+  background-color: lighten(grey, 40%);
+  color: $fontColor;
+  position: absolute;
+  top: -9rem;
+  right: -1.5rem;
+  z-index: 2;
+  &::after {
+    content: "";
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    background-color: lighten(grey, 40%);
+    position: absolute;
+    left: 5rem;
+    transform: rotate(45deg);
+    z-index: 1;
+  }
+}
+
+.headerButton_organise {
+  position: relative;
+  &:hover .headerButton_organise-tooltip {
+    display: block;
+  }
+}
+
 
 @media (max-width: 750px) {
   .heroRightArea {
