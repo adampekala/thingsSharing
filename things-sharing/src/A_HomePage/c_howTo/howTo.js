@@ -25,7 +25,7 @@ const HowTo = () => {
         <>
             <div className='howTo_header'>
                 <h1 className='howTo_header'>Wystarczą 4 proste kroki</h1>
-                <img src={decoration} alt='dekoracja'/>
+                <img className='howTo_header-decoration' src={decoration} alt='dekoracja'/>
             </div>
             <div className='howTo'>
                 <article className='howToArticle_left'>

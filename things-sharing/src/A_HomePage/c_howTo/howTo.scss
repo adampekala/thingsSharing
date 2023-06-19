@@ -54,6 +54,10 @@
   background-color: white;
 }
 
+.howTo_header-decoration {
+  width: 30%;
+}
+
 .howToBtnContainer {
   max-width: $maxWidth;
   background-color: white;
@@ -126,7 +130,7 @@
   .howTo_header {
     padding: 1rem 2rem 2rem;
     img {
-      width: 60%;
+      width: 30%;
     }
   }
 }
